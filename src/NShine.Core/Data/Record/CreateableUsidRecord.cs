@@ -13,7 +13,7 @@ namespace NShine.Core.Data.Record
         public virtual DateTime CreatedTime { get; set; }
 
         /// <summary>
-        /// 获取或设置 创建者Id。
+        /// 获取或设置 创建者ID。
         /// </summary>
         public virtual int CreatorId { get; set; }
     }

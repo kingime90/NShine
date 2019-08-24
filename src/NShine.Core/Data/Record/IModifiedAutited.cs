@@ -13,7 +13,7 @@ namespace NShine.Core.Data.Record
         DateTime ModifiedTime { get; set; }
 
         /// <summary>
-        /// 获取或设置 最后修改者Id。
+        /// 获取或设置 最后修改者ID。
         /// </summary>
         int ModifierId { get; set; }
     }

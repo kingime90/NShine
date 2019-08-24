@@ -40,12 +40,14 @@ namespace NShine.Core.Data.Mapper
             PropertyMapping();
             configurations.Add(this);
         }
+
         /// <summary>
         /// 主键映射。
         /// </summary>
         protected virtual void KeyMapping()
         {
-
+            //配置主键
+            HasKey(p => p.Id);
         }
 
         /// <summary>

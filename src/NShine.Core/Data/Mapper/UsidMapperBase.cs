@@ -1,4 +1,5 @@
 ﻿using NShine.Core.Data.Record;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 
 namespace NShine.Core.Data.Mapper
@@ -12,6 +13,14 @@ namespace NShine.Core.Data.Mapper
         where TRecord : class, IUsidRecord, new()
         where TDbContext : DbContext
     {
-
+        /// <summary>
+        /// 主键映射。
+        /// </summary>
+        protected override void KeyMapping()
+        {
+            base.KeyMapping();
+            //主键值手动模式
+            Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None).IsUnicode(false).HasMaxLength(36);
+        }
     }
 }

@@ -7,7 +7,7 @@
     public interface IRecord<out TKey>
     {
         /// <summary>
-        /// 获取 主键Id。
+        /// 获取 主键ID。
         /// </summary>
         TKey Id { get; }
     }

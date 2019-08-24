@@ -6,7 +6,7 @@
     public abstract class IdentityRecord : IUiidRecord
     {
         /// <summary>
-        /// 获取或设置 主键Id。
+        /// 获取或设置 主键ID（自增）。
         /// </summary>
         public virtual int Id { get; set; }
     }

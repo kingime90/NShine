@@ -6,7 +6,7 @@
     public interface ICreated
     {
         /// <summary>
-        /// 获取或设置 创建者Id。
+        /// 获取或设置 创建者ID。
         /// </summary>
         int CreatorId { get; set; }
     }

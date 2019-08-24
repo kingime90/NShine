@@ -53,12 +53,16 @@
     <Compile Include="Collections\IPageOfItems.cs" />
     <Compile Include="Collections\PageOfItems.cs" />
     <Compile Include="Collections\ReadOnlyList.cs" />
+    <Compile Include="Data\DbContextBase.cs" />
+    <Compile Include="Data\DefaultDbContext.cs" />
     <Compile Include="Data\ITransaction.cs" />
     <Compile Include="Data\IUiidRepository.cs" />
     <Compile Include="Data\IUsidRepository.cs" />
     <Compile Include="Data\Mapper\MapperBase.cs" />
     <Compile Include="Data\Mapper\IMapper.cs" />
+    <Compile Include="Data\Mapper\DefaultUiidMapper.cs" />
     <Compile Include="Data\Mapper\UiidMapperBase.cs" />
+    <Compile Include="Data\Mapper\DefaultUsidMapper.cs" />
     <Compile Include="Data\Mapper\UsidMapperBase.cs" />
     <Compile Include="Data\Record\CreateableGuidRecord.cs" />
     <Compile Include="Data\Record\EditableGuidRecord.cs" />
