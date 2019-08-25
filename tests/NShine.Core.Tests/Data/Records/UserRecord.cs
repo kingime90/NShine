@@ -5,7 +5,7 @@ namespace NShine.Core.Tests.Data.Records
     /// <summary>
     /// 用户记录。
     /// </summary>
-    public class UserRecord : EditableUsidRecord
+    public class UserRecord : EditableUsid16Record
     {
         /// <summary>
         /// 用户名

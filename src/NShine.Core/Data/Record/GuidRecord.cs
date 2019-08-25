@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using NShine.Core.Utils;
 
 namespace NShine.Core.Data.Record
 {
@@ -11,5 +11,13 @@ namespace NShine.Core.Data.Record
         /// 获取或设置 主键ID。
         /// </summary>
         public virtual string Id { get; set; }
+
+        /// <summary>
+        /// 生成主键值。
+        /// </summary>
+        public virtual void GenerateKey()
+        {
+            Id = KeyGeneratorUtil.NewGuid();
+        }
     }
 }

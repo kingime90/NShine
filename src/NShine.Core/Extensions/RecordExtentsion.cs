@@ -1,5 +1,4 @@
 ﻿using NShine.Core.Data.Record;
-using NShine.Core.Utils;
 using System;
 
 namespace NShine.Core.Extensions
@@ -19,20 +18,7 @@ namespace NShine.Core.Extensions
             {
                 return;
             }
-            //
-            Usid16Record nuidRecord;
-            if ((nuidRecord = (record as Usid16Record)) != null)
-            {
-                nuidRecord.Id = KeyGeneratorUtil.NewUsid16();
-                return;
-            }
-            //
-            GuidRecord guidRecord;
-            if ((guidRecord = (record as GuidRecord)) != null)
-            {
-                guidRecord.Id = KeyGeneratorUtil.NewGuid();
-                return;
-            }
+            record.GenerateKey();
         }
 
         /// <summary>

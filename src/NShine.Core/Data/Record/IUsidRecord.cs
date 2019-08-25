@@ -5,6 +5,11 @@
     /// </summary>
     public interface IUsidRecord : IRecord<string>
     {
-
+        /// <summary>
+        /// 生成主键值。
+        /// 1、如果手动生成主键，创建数据记录，将不会再次生成主键。
+        /// 2、如果没有手动生成主键，创建数据记录，将会生成主键。
+        /// </summary>
+        void GenerateKey();
     }
 }
