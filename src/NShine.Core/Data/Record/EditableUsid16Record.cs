@@ -3,9 +3,9 @@
 namespace NShine.Core.Data.Record
 {
     /// <summary>
-    /// 可编辑的唯一字符串主键数据记录。
+    /// 可编辑的16位长度唯一字符串主键数据记录。
     /// </summary>
-    public abstract class EditableUsidRecord : UsidRecord, ICreatedAudited, IModifiedAutited
+    public abstract class EditableUsid16Record : Usid16Record, ICreatedAudited, IModifiedAutited
     {
         /// <summary>
         /// 获取或设置 创建时间。

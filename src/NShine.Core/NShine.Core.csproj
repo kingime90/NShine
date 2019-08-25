@@ -67,8 +67,8 @@
     <Compile Include="Data\Record\CreateableGuidRecord.cs" />
     <Compile Include="Data\Record\EditableGuidRecord.cs" />
     <Compile Include="Data\Record\CreateableRecord.cs" />
-    <Compile Include="Data\Record\CreateableUsidRecord.cs" />
-    <Compile Include="Data\Record\EditableUsidRecord.cs" />
+    <Compile Include="Data\Record\CreateableUsid16Record.cs" />
+    <Compile Include="Data\Record\EditableUsid16Record.cs" />
     <Compile Include="Data\Record\EditableRecord.cs" />
     <Compile Include="Data\Record\ICreatedAudited.cs" />
     <Compile Include="Data\Record\ICreated.cs" />
@@ -78,6 +78,7 @@
     <Compile Include="Data\Record\IUiidRecord.cs" />
     <Compile Include="Data\Record\IUsidRecord.cs" />
     <Compile Include="Data\Record\GuidRecord.cs" />
+    <Compile Include="Data\Record\Usid19Record.cs" />
     <Compile Include="Data\RepositoryBase.cs" />
     <Compile Include="Data\UiidRepository.cs" />
     <Compile Include="Data\UsidRepository.cs" />
@@ -85,7 +86,7 @@
     <Compile Include="Options\ValidOption.cs" />
     <Compile Include="Public\IPage.cs" />
     <Compile Include="Public\OrderSelector.cs" />
-    <Compile Include="Data\Record\UsidRecord.cs" />
+    <Compile Include="Data\Record\Usid16Record.cs" />
     <Compile Include="Data\Record\IdentityRecord.cs" />
     <Compile Include="Data\Record\IRecord.cs" />
     <Compile Include="Data\IRepository.cs" />

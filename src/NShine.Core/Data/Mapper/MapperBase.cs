@@ -1,8 +1,8 @@
-﻿using NShine.Core.Data.Record;
-using System;
+﻿using System;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Configuration;
+using NShine.Core.Data.Record;
 
 namespace NShine.Core.Data.Mapper
 {
@@ -36,6 +36,9 @@ namespace NShine.Core.Data.Mapper
         /// <param name="configurations">数据记录映射配置注册器。</param>
         public void RegistTo(ConfigurationRegistrar configurations)
         {
+            //配置主键
+            HasKey(p => p.Id);
+
             KeyMapping();
             PropertyMapping();
             configurations.Add(this);
@@ -46,8 +49,7 @@ namespace NShine.Core.Data.Mapper
         /// </summary>
         protected virtual void KeyMapping()
         {
-            //配置主键
-            HasKey(p => p.Id);
+            
         }
 
         /// <summary>

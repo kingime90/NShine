@@ -20,10 +20,10 @@ namespace NShine.Core.Extensions
                 return;
             }
             //
-            UsidRecord nuidRecord;
-            if ((nuidRecord = (record as UsidRecord)) != null)
+            Usid16Record nuidRecord;
+            if ((nuidRecord = (record as Usid16Record)) != null)
             {
-                nuidRecord.Id = KeyGeneratorUtil.NewUsid();
+                nuidRecord.Id = KeyGeneratorUtil.NewUsid16();
                 return;
             }
             //

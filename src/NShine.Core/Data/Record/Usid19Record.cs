@@ -1,11 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace NShine.Core.Data.Record
+﻿namespace NShine.Core.Data.Record
 {
     /// <summary>
-    /// 唯一字符串主键数据记录基类。
+    /// 19位长度唯一字符串主键数据记录基类。
     /// </summary>
-    public abstract class UsidRecord : IUsidRecord
+    public abstract class Usid19Record : IUsidRecord
     {
         /// <summary>
         /// 获取或设置 主键ID。

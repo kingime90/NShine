@@ -1,6 +1,6 @@
-﻿using NShine.Core.Data.Record;
+﻿using System.Data.Entity;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity;
+using NShine.Core.Data.Record;
 
 namespace NShine.Core.Data.Mapper
 {
@@ -18,7 +18,6 @@ namespace NShine.Core.Data.Mapper
         /// </summary>
         protected override void KeyMapping()
         {
-            base.KeyMapping();
             //主键值手动模式
             Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None).IsUnicode(false).HasMaxLength(36);
         }

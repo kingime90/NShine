@@ -18,7 +18,6 @@ namespace NShine.Core.Data.Mapper
         /// </summary>
         protected override void KeyMapping()
         {
-            base.KeyMapping();
             //主键值自增
             Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
         }
