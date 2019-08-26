@@ -8,7 +8,7 @@
         /// <summary>
         /// 初始化一个<see cref="DefaultDbContext"/>类型的新实例。
         /// </summary>
-        public DefaultDbContext()
+        public DefaultDbContext() : base()
         {
 
         }
