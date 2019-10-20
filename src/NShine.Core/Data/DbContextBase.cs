@@ -8,7 +8,7 @@ namespace NShine.Core.Data
     /// 数据库上下文基类。
     /// </summary>
     /// <typeparam name="TDbContext"></typeparam>
-    public abstract class DbContextBase<TDbContext> : DbContext, ITransaction where TDbContext : DbContext, ITransaction, new()
+    public abstract class DbContextBase<TDbContext> : DbContext, ITransactionManage where TDbContext : DbContext, ITransactionManage, new()
     {
         /// <summary>
         /// 初始化一个<see cref="DbContextBase{TDbContext}"/>类型的新实例。
@@ -49,7 +49,7 @@ namespace NShine.Core.Data
         /// 显式开启数据库事物。
         /// </summary>
         /// <param name="isolationLevel"></param>
-        public void BeginTransaction(IsolationLevel isolationLevel = IsolationLevel.Unspecified)
+        public void Begin(IsolationLevel isolationLevel = IsolationLevel.Unspecified)
         {
             if (Enabled)
             {

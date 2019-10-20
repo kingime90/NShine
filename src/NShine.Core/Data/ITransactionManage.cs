@@ -1,12 +1,11 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 
 namespace NShine.Core.Data
 {
     /// <summary>
-    /// 定义数据库事务接口。
+    /// 定义数据库事务管理接口。
     /// </summary>
-    public interface ITransaction
+    public interface ITransactionManage
     {
         /// <summary>
         /// 获取 是否开启事务。
@@ -17,7 +16,7 @@ namespace NShine.Core.Data
         /// 显式开启数据库事物。
         /// </summary>
         /// <param name="isolationLevel">指定连接的事务锁定行为，默认<see cref="IsolationLevel.Unspecified"/>。</param>
-        void BeginTransaction(IsolationLevel isolationLevel = IsolationLevel.Unspecified);
+        void Begin(IsolationLevel isolationLevel = IsolationLevel.Unspecified);
 
         /// <summary>
         /// 提交数据库事物更改。

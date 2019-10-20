@@ -55,7 +55,7 @@
     <Compile Include="Collections\ReadOnlyList.cs" />
     <Compile Include="Data\DbContextBase.cs" />
     <Compile Include="Data\DefaultDbContext.cs" />
-    <Compile Include="Data\ITransaction.cs" />
+    <Compile Include="Data\ITransactionManage.cs" />
     <Compile Include="Data\IUiidRepository.cs" />
     <Compile Include="Data\IUsidRepository.cs" />
     <Compile Include="Data\Mapper\MapperBase.cs" />
