@@ -18,7 +18,7 @@ namespace NShine.Core.Dependency
         /// <param name="serviceType">服务类型。</param>
         /// <param name="implementationType">服务实现类型。</param>
         /// <param name="lifetime">生命周期。</param>
-        public ServiceDescriptor(Type serviceType, Type implementationType, LifetimeOption lifetime = LifetimeOption.Transient) : this(serviceType, lifetime)
+        public ServiceDescriptor(Type serviceType, Type implementationType, LifetimeOption lifetime) : this(serviceType, lifetime)
         {
             ImplementationType = implementationType;
         }
@@ -29,7 +29,7 @@ namespace NShine.Core.Dependency
         /// <param name="serviceType">服务类型。</param>
         /// <param name="implementationInstance">服务实现实例。</param>
         /// <param name="lifetime">生命周期。</param>
-        public ServiceDescriptor(Type serviceType, object implementationInstance, LifetimeOption lifetime = LifetimeOption.Transient) : this(serviceType, lifetime)
+        public ServiceDescriptor(Type serviceType, object implementationInstance, LifetimeOption lifetime) : this(serviceType, lifetime)
         {
             ImplementationInstance = implementationInstance;
         }
@@ -40,7 +40,7 @@ namespace NShine.Core.Dependency
         /// <param name="serviceType">服务类型。</param>
         /// <param name="implementationFactory">服务实现实例工厂。</param>
         /// <param name="lifetime">生命周期。</param>
-        public ServiceDescriptor(Type serviceType, Func<IServiceProvider, object> implementationFactory, LifetimeOption lifetime = LifetimeOption.Transient) : this(serviceType, lifetime)
+        public ServiceDescriptor(Type serviceType, Func<IServiceProvider, object> implementationFactory, LifetimeOption lifetime) : this(serviceType, lifetime)
         {
             ImplementationFactory = implementationFactory;
         }
@@ -50,7 +50,7 @@ namespace NShine.Core.Dependency
         /// </summary>
         /// <param name="serviceType">服务类型。</param>
         /// <param name="lifetime">生命周期。</param>
-        private ServiceDescriptor(Type serviceType, LifetimeOption lifetime = LifetimeOption.Transient)
+        private ServiceDescriptor(Type serviceType, LifetimeOption lifetime)
         {
             Lifetime = lifetime;
             ServiceType = serviceType;
@@ -302,7 +302,7 @@ namespace NShine.Core.Dependency
         /// <typeparam name="TImplementation">泛型实现类型。</typeparam>
         /// <param name="lifetime">生命周期。</param>
         /// <returns></returns>
-        public static ServiceDescriptor Descriptor<TService, TImplementation>(LifetimeOption lifetime = LifetimeOption.Transient)
+        public static ServiceDescriptor Descriptor<TService, TImplementation>(LifetimeOption lifetime)
             where TService : class
             where TImplementation : TService
         {
@@ -316,7 +316,7 @@ namespace NShine.Core.Dependency
         /// <param name="implementationType">服务实现类型。</param>
         /// <param name="lifetime">生命周期。</param>
         /// <returns></returns>
-        public static ServiceDescriptor Descriptor(Type serviceType, Type implementationType, LifetimeOption lifetime = LifetimeOption.Transient)
+        public static ServiceDescriptor Descriptor(Type serviceType, Type implementationType, LifetimeOption lifetime)
         {
             return new ServiceDescriptor(serviceType, implementationType, lifetime);
         }
@@ -328,7 +328,7 @@ namespace NShine.Core.Dependency
         /// <param name="implementationInstance">服务实现实例。</param>
         /// <param name="lifetime">生命周期。</param>
         /// <returns></returns>
-        public static ServiceDescriptor Descriptor(Type serviceType, object implementationInstance, LifetimeOption lifetime = LifetimeOption.Transient)
+        public static ServiceDescriptor Descriptor(Type serviceType, object implementationInstance, LifetimeOption lifetime)
         {
             return new ServiceDescriptor(serviceType, implementationInstance, lifetime);
         }
@@ -340,7 +340,7 @@ namespace NShine.Core.Dependency
         /// <param name="implementationFactory">服务实现实例工厂。</param>
         /// <param name="lifetime">生命周期。</param>
         /// <returns></returns>
-        public static ServiceDescriptor Descriptor(Type serviceType, Func<IServiceProvider, object> implementationFactory, LifetimeOption lifetime = LifetimeOption.Transient)
+        public static ServiceDescriptor Descriptor(Type serviceType, Func<IServiceProvider, object> implementationFactory, LifetimeOption lifetime)
         {
             return new ServiceDescriptor(serviceType, implementationFactory, lifetime);
         }

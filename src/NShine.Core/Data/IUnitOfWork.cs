@@ -3,12 +3,12 @@
 namespace NShine.Core.Data
 {
     /// <summary>
-    /// 定义数据库事务管理接口。
+    /// 定义业务单元操作接口。
     /// </summary>
-    public interface ITransactionManage
+    public interface IUnitOfWork
     {
         /// <summary>
-        /// 获取 是否开启事务。
+        /// 获取 是否开启事务提交。
         /// </summary>
         bool Enabled { get; }
 
