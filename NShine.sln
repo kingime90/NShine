@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NShine.Core", "src\NShine.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NShine.Core.Tests", "tests\NShine.Core.Tests\NShine.Core.Tests.csproj", "{42D40A26-38F9-4F63-9714-4D2611A15236}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp.Demo", "WebApp.Demo\WebApp.Demo.csproj", "{7282B789-0189-4840-BEF5-D97B4F2920A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{42D40A26-38F9-4F63-9714-4D2611A15236}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42D40A26-38F9-4F63-9714-4D2611A15236}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42D40A26-38F9-4F63-9714-4D2611A15236}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7282B789-0189-4840-BEF5-D97B4F2920A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7282B789-0189-4840-BEF5-D97B4F2920A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7282B789-0189-4840-BEF5-D97B4F2920A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7282B789-0189-4840-BEF5-D97B4F2920A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
