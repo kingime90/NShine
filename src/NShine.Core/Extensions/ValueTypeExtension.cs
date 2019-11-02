@@ -10,44 +10,130 @@ namespace NShine.Core.Extensions
         #region bool
 
         /// <summary>
-        /// 获取满足条件的值。
+        /// 获取满足条件的结果。
         /// </summary>
-        /// <typeparam name="TResult">返回值的类型。</typeparam>
+        /// <typeparam name="TResult">返回结果的类型。</typeparam>
         /// <param name="condition">条件的值。</param>
-        /// <param name="trueValue">如果条件的值为 true，要返回的值。</param>
-        /// <param name="falseValue">如果条件的值为 false，要返回的值。</param>
+        /// <param name="trueResult">如果条件的值为 true，要返回的结果。</param>
+        /// <param name="falseResult">如果条件的值为 false，要返回的结果。</param>
         /// <returns></returns>
-        public static TResult Get<TResult>(this bool condition, TResult trueValue, TResult falseValue)
+        public static TResult Conditional<TResult>(this bool condition, TResult trueResult, TResult falseResult)
         {
-            return condition ? trueValue : falseValue;
+            return condition ? trueResult : falseResult;
         }
 
         /// <summary>
-        /// 获取满足条件的有返回值的方法的值。
+        /// 获取满足条件的结果。
         /// </summary>
-        /// <typeparam name="TResult">返回值的类型。</typeparam>
+        /// <typeparam name="TResult">返回结果的类型。</typeparam>
         /// <param name="condition">条件的值。</param>
-        /// <param name="trueValue">如果条件的值为 true，有返回值的方法。</param>
-        /// <param name="falseValue">如果条件的值为 false，有返回值的方法。</param>
+        /// <param name="trueResult">如果条件的值为 true，要返回的结果。</param>
+        /// <param name="falseResult">如果条件的值为 false，要返回的结果。</param>
         /// <returns></returns>
-        public static TResult Get<TResult>(this bool condition, Func<TResult> trueAction, Func<TResult> falseAction)
+        public static TResult Conditional<TResult>(this bool condition, Func<TResult> trueResult, TResult falseResult)
         {
-            return condition ? trueAction() : falseAction();
+            return condition ? trueResult() : falseResult;
         }
 
         /// <summary>
-        /// 获取满足条件的有参数有返回值的方法的值。
+        /// 获取满足条件的结果。
+        /// </summary>
+        /// <typeparam name="TResult">返回结果的类型。</typeparam>
+        /// <param name="condition">条件的值。</param>
+        /// <param name="trueResult">如果条件的值为 true，要返回的结果。</param>
+        /// <param name="falseResult">如果条件的值为 false，要返回的结果。</param>
+        /// <returns></returns>
+        public static TResult Conditional<TResult>(this bool condition, TResult trueResult, Func<TResult> falseResult)
+        {
+            return condition ? trueResult : falseResult();
+        }
+
+        /// <summary>
+        /// 获取满足条件的结果。
+        /// </summary>
+        /// <typeparam name="TResult">返回结果的类型。</typeparam>
+        /// <param name="condition">条件的值。</param>
+        /// <param name="trueResult">如果条件的值为 true，要返回的结果。</param>
+        /// <param name="falseResult">如果条件的值为 false，要返回的结果。</param>
+        /// <returns></returns>
+        public static TResult Conditional<TResult>(this bool condition, Func<TResult> trueResult, Func<TResult> falseResult)
+        {
+            return condition ? trueResult() : falseResult();
+        }
+
+        /// <summary>
+        /// 获取满足条件的结果。
         /// </summary>
         /// <typeparam name="TParam">参数的类型。</typeparam>
-        /// <typeparam name="TResult">返回值的类型。</typeparam>
+        /// <typeparam name="TResult">返回结果的类型。</typeparam>
         /// <param name="condition">条件的值。</param>
-        /// <param name="trueAction">如果条件的值为 true，有参数有返回值的方法。</param>
-        /// <param name="falseAction">如果条件的值为 false，有参数有返回值的方法。</param>
+        /// <param name="trueResult">如果条件的值为 true，要返回的结果。</param>
+        /// <param name="falseResult">如果条件的值为 false，要返回的结果。</param>
         /// <param name="param">参数值。</param>
         /// <returns></returns>
-        public static TResult Get<TParam, TResult>(this bool condition, Func<TParam, TResult> trueAction, Func<TParam, TResult> falseAction, TParam param)
+        public static TResult Conditional<TParam, TResult>(this bool condition, TResult trueResult, Func<TParam, TResult> falseResult, TParam param)
         {
-            return condition ? trueAction(param) : falseAction(param);
+            return condition ? trueResult : falseResult(param);
+        }
+
+        /// <summary>
+        /// 获取满足条件的结果。
+        /// </summary>
+        /// <typeparam name="TParam">参数的类型。</typeparam>
+        /// <typeparam name="TResult">返回结果的类型。</typeparam>
+        /// <param name="condition">条件的值。</param>
+        /// <param name="trueResult">如果条件的值为 true，要返回的结果。</param>
+        /// <param name="falseResult">如果条件的值为 false，要返回的结果。</param>
+        /// <param name="param">参数值。</param>
+        /// <returns></returns>
+        public static TResult Conditional<TParam, TResult>(this bool condition, Func<TParam, TResult> trueResult, TResult falseResult, TParam param)
+        {
+            return condition ? trueResult(param) : falseResult;
+        }
+
+        /// <summary>
+        /// 获取满足条件的结果。
+        /// </summary>
+        /// <typeparam name="TParam">参数的类型。</typeparam>
+        /// <typeparam name="TResult">返回结果的类型。</typeparam>
+        /// <param name="condition">条件的值。</param>
+        /// <param name="trueResult">如果条件的值为 true，要返回的结果。</param>
+        /// <param name="falseResult">如果条件的值为 false，要返回的结果。</param>
+        /// <param name="param">参数值。</param>
+        /// <returns></returns>
+        public static TResult Conditional<TParam, TResult>(this bool condition, Func<TResult> trueResult, Func<TParam, TResult> falseResult, TParam param)
+        {
+            return condition ? trueResult() : falseResult(param);
+        }
+
+        /// <summary>
+        /// 获取满足条件的结果。
+        /// </summary>
+        /// <typeparam name="TParam">参数的类型。</typeparam>
+        /// <typeparam name="TResult">返回结果的类型。</typeparam>
+        /// <param name="condition">条件的值。</param>
+        /// <param name="trueResult">如果条件的值为 true，要返回的结果。</param>
+        /// <param name="falseResult">如果条件的值为 false，要返回的结果。</param>
+        /// <param name="param">参数值。</param>
+        /// <returns></returns>
+        public static TResult Conditional<TParam, TResult>(this bool condition, Func<TParam, TResult> trueResult, Func<TResult> falseResult, TParam param)
+        {
+            return condition ? trueResult(param) : falseResult();
+        }
+
+        /// <summary>
+        /// 获取满足条件的结果。
+        /// </summary>
+        /// <typeparam name="TParam">参数的类型。</typeparam>
+        /// <typeparam name="TResult">返回结果的类型。</typeparam>
+        /// <param name="condition">条件的值。</param>
+        /// <param name="trueResult">如果条件的值为 true，要返回的结果。</param>
+        /// <param name="falseResult">如果条件的值为 false，要返回的结果。</param>
+        /// <param name="param">参数值。</param>
+        /// <returns></returns>
+        public static TResult Conditional<TParam, TResult>(this bool condition, Func<TParam, TResult> trueResult, Func<TParam, TResult> falseResult, TParam param)
+        {
+            return condition ? trueResult(param) : falseResult(param);
         }
 
         #endregion
@@ -62,7 +148,7 @@ namespace NShine.Core.Extensions
         /// <returns></returns>
         public static string ToShortDate(this DateTime dateTime, bool isConcise = false)
         {
-            return dateTime.ToString(isConcise.Get("yyyy-M-d", "yyyy-MM-dd"));
+            return dateTime.ToString(isConcise.Conditional("yyyy-M-d", "yyyy-MM-dd"));
         }
 
         /// <summary>
@@ -73,7 +159,7 @@ namespace NShine.Core.Extensions
         /// <returns></returns>
         public static string ToLongDate(this DateTime dateTime, bool isConcise = true)
         {
-            return dateTime.ToString(isConcise.Get("yyyy年M月d日", "yyyy年MM月dd日"));
+            return dateTime.ToString(isConcise.Conditional("yyyy年M月d日", "yyyy年MM月dd日"));
         }
 
         /// <summary>
@@ -104,7 +190,7 @@ namespace NShine.Core.Extensions
         /// <returns></returns>
         public static string ToShortString(this DateTime dateTime, bool isConcise = false)
         {
-            return dateTime.ToString(isConcise.Get("yyyy-M-d HH:mm:ss", "yyyy-MM-dd HH:mm:ss"));
+            return dateTime.ToString(isConcise.Conditional("yyyy-M-d HH:mm:ss", "yyyy-MM-dd HH:mm:ss"));
         }
 
         /// <summary>
@@ -115,7 +201,7 @@ namespace NShine.Core.Extensions
         /// <returns></returns>
         public static string ToLongString(this DateTime dateTime, bool isConcise = true)
         {
-            return dateTime.ToString(isConcise.Get("yyyy年M月d日 HH:mm:ss", "yyyy年MM月dd日 HH:mm:ss"));
+            return dateTime.ToString(isConcise.Conditional("yyyy年M月d日 HH:mm:ss", "yyyy年MM月dd日 HH:mm:ss"));
         }
 
         /// <summary>
@@ -160,15 +246,30 @@ namespace NShine.Core.Extensions
 
         #endregion
 
+        #region struct T
+
         /// <summary>
         /// 指示指定的值是否是默认值。
         /// </summary>
         /// <typeparam name="T">要测试的类型。</typeparam>
         /// <param name="value">要测试的值。</param>
         /// <returns></returns>
-        public static bool IsDefaultValue<T>(this T value) where T : struct
+        public static bool IsDefault<T>(this T value) where T : struct
         {
             return value.Equals(default(T));
         }
+
+        /// <summary>
+        /// 指示指定的值是否不是默认值。
+        /// </summary>
+        /// <typeparam name="T">要测试的类型。</typeparam>
+        /// <param name="value">要测试的值。</param>
+        /// <returns></returns>
+        public static bool IsNotDefault<T>(this T value) where T : struct
+        {
+            return !value.IsDefault();
+        }
+
+        #endregion
     }
 }

@@ -8,7 +8,7 @@ namespace NShine.Core.Extensions
     /// </summary>
     public static class GeneralExtentsion
     {
-        #region 泛型
+        #region T
 
         /// <summary>
         /// 获取指定对象的值 或 默认值 （默认 <see cref="default(T)"/>）。
@@ -17,9 +17,9 @@ namespace NShine.Core.Extensions
         /// <param name="value">对象的值。</param>
         /// <param name="defaultValue">如果对象的值为 null，要返回的默认值（默认 <see cref="default(T)"/>）。</param>
         /// <returns></returns>
-        public static T GetOrDefault<T>(this T value, T defaultValue = default(T)) where T : class
+        public static T OrDefault<T>(this T value, T defaultValue = default(T)) where T : class
         {
-            return (value != null).Get(value, defaultValue);
+            return (value != null).Conditional(value, defaultValue);
         }
 
         /// <summary>
@@ -100,8 +100,6 @@ namespace NShine.Core.Extensions
             return result;
         }
 
-        #endregion
-
         /// <summary>
         /// 指示指定的比较器接口实例是否有值。
         /// </summary>
@@ -111,5 +109,7 @@ namespace NShine.Core.Extensions
         {
             return !(value == null || value.Equals(default(T)) || ((value is string) && Convert.ToString(value).IsEmpty()));
         }
+
+        #endregion
     }
 }

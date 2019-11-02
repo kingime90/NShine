@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Reflection;
 
 namespace NShine.Core.Reflection
 {
@@ -29,7 +28,7 @@ namespace NShine.Core.Reflection
         /// <returns></returns>
         public override Type[] FindAll()
         {
-            Assembly[] assemblies = AssemblyFinder.FindAll();
+            var assemblies = AssemblyFinder.FindAll();
             var serviceType = typeof(TServiceType);
             return assemblies.SelectMany(assembly => assembly.GetTypes().Where(type => serviceType.IsAssignableFrom(type))).Distinct().ToArray();
         }

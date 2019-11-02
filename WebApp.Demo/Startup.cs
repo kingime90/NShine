@@ -4,7 +4,6 @@ using WebApp.Demo;
 using NShine.Core.Dependency;
 
 [assembly: OwinStartup(typeof(Startup))]
-
 namespace WebApp.Demo
 {
     public class Startup

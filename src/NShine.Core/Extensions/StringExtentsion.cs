@@ -16,7 +16,7 @@ namespace NShine.Core.Extensions
         /// <returns></returns>
         public static bool IsEmpty(this string value, bool isIgnoreWhite = true)
         {
-            return isIgnoreWhite.Get(string.IsNullOrWhiteSpace, string.IsNullOrEmpty, value);
+            return isIgnoreWhite.Conditional(string.IsNullOrWhiteSpace, string.IsNullOrEmpty, value);
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace NShine.Core.Extensions
         /// <returns></returns>
         public static bool IsNotEmpty(this string value, bool isIgnoreWhite = true)
         {
-            return !IsEmpty(value, isIgnoreWhite);
+            return !value.IsEmpty(isIgnoreWhite);
         }
 
         /// <summary>
@@ -36,9 +36,9 @@ namespace NShine.Core.Extensions
         /// <param name="value">字符串的值。</param>
         /// <param name="defaultValue">如果字符串的值的为 null，要返回的默认字符串（默认 “空字符串”）。</param>
         /// <returns></returns>
-        public static string GetOrDefault(this string value, string defaultValue = "")
+        public static string OrDefault(this string value, string defaultValue = "")
         {
-            return GetOrDefault(value, true, defaultValue);
+            return value.OrDefault(true, defaultValue);
         }
 
         /// <summary>
@@ -48,9 +48,9 @@ namespace NShine.Core.Extensions
         /// <param name="isClearWhite">是否清除前后空白字符。</param>
         /// <param name="defaultValue">如果字符串的值的为 null，要返回的默认字符串（默认 “空字符串”）。</param>
         /// <returns></returns>
-        public static string GetOrDefault(this string value, bool isClearWhite, string defaultValue = "")
+        public static string OrDefault(this string value, bool isClearWhite, string defaultValue = "")
         {
-            return value != null ? (isClearWhite ? value.Trim() : value) : defaultValue;
+            return value != null ? isClearWhite.Conditional(() => value.Trim(), value) : defaultValue;
         }
 
         /// <summary>

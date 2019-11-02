@@ -8,7 +8,7 @@ namespace NShine.Core.Dependency
     public interface IServiceCollection : IList<ServiceDescriptor>
     {
         /// <summary>
-        /// 克隆创建当前集合的副本
+        /// 克隆创建当前集合的副本。
         /// </summary>
         /// <returns></returns>
         IServiceCollection Clone();

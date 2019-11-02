@@ -40,23 +40,23 @@ namespace NShine.Core.Tests.Extensions
         /// 获取字符串或默认值（默认清除前后空白字符）。
         /// </summary>
         [Test]
-        public void GetOrDefaultTest()
+        public void OrDefaultTest()
         {
             string value = null, result;
 
-            result = value.GetOrDefault();
+            result = value.OrDefault();
             Assert.AreEqual(result, string.Empty);
 
             value = null;
-            result = value.GetOrDefault(".Net");
+            result = value.OrDefault(".Net");
             Assert.AreEqual(result, ".Net");
 
             value = " ";
-            result = value.GetOrDefault();
+            result = value.OrDefault();
             Assert.AreEqual(result, string.Empty);
 
             value = " ";
-            result = value.GetOrDefault(false);
+            result = value.OrDefault(false);
             Assert.AreEqual(result, " ");
         }
 

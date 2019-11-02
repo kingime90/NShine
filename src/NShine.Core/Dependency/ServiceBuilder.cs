@@ -15,9 +15,10 @@ namespace NShine.Core.Dependency
         /// <summary>
         /// 初始化一个<see cref="ServiceBuilder"/>类型的新实例
         /// </summary>
-        public ServiceBuilder()
-            : this(new ServiceBuildOptions())
-        { }
+        public ServiceBuilder() : this(new ServiceBuildOptions())
+        {
+
+        }
 
         /// <summary>
         /// 初始化一个<see cref="ServiceBuilder"/>类型的新实例

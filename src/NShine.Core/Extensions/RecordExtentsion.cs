@@ -30,7 +30,7 @@ namespace NShine.Core.Extensions
         public static void CheckICreatedTime<TKey>(this IRecord<TKey> record, DateTime createdTime)
         {
             ICreatedTime createdTimeRecord;
-            if (record == null || (createdTimeRecord = (record as ICreatedTime)) == null || !createdTimeRecord.CreatedTime.IsDefaultValue())
+            if (record == null || (createdTimeRecord = (record as ICreatedTime)) == null || createdTimeRecord.CreatedTime.IsNotDefault())
             {
                 return;
             }
@@ -47,7 +47,7 @@ namespace NShine.Core.Extensions
         public static void CheckICreated<TKey>(this IRecord<TKey> record, int creatorId)
         {
             ICreated created;
-            if (record == null || (created = (record as ICreated)) == null || !created.CreatorId.IsDefaultValue())
+            if (record == null || (created = (record as ICreated)) == null || created.CreatorId.IsNotDefault())
             {
                 return;
             }
@@ -64,8 +64,8 @@ namespace NShine.Core.Extensions
         /// <param name="creatorId">创建者Id。</param>
         public static void CheckICreatedAudited<TKey>(this IRecord<TKey> record, DateTime createdTime, int creatorId)
         {
-            CheckICreatedTime(record, createdTime);
-            CheckICreated(record, creatorId);
+            record.CheckICreatedTime(createdTime);
+            record.CheckICreated(creatorId);
         }
 
         /// <summary>
@@ -96,9 +96,9 @@ namespace NShine.Core.Extensions
         /// <param name="creatorId">创建者Id。</param>
         public static void CheckCreate<TKey>(this IRecord<TKey> record, DateTime createdTime, int creatorId)
         {
-            CheckUniqueKey(record as IUsidRecord);
-            CheckICreatedAudited(record, createdTime, creatorId);
-            CheckIModifiedAutited(record, createdTime, creatorId);
+            (record as IUsidRecord).CheckUniqueKey();
+            record.CheckICreatedAudited(createdTime, creatorId);
+            record.CheckIModifiedAutited(createdTime, creatorId);
         }
     }
 }

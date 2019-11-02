@@ -27,7 +27,7 @@ namespace NShine.Core.Extensions
         /// <returns></returns>
         public static bool IsNotEmpty<T>(this IEnumerable<T> source)
         {
-            return !IsEmpty<T>(source);
+            return !source.IsEmpty();
         }
     }
 }
