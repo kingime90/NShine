@@ -58,6 +58,16 @@ namespace NShine.Core.Utils
         }
 
         /// <summary>
+        /// 尝试从包含JSON的字符串中获取JObject。
+        /// </summary>
+        /// <param name="value">要反序列化的字符串的值。</param>
+        /// <returns></returns>
+        public static dynamic TryDeserialize(string value)
+        {
+            return TryUtil.ExecuteResult(Deserialize, value);
+        }
+
+        /// <summary>
         /// 将JSON反序列化为指定的类型。
         /// </summary>
         /// <param name="value">要反序列化的字符串的值。</param>
@@ -69,14 +79,36 @@ namespace NShine.Core.Utils
         }
 
         /// <summary>
+        /// 尝试将JSON反序列化为指定的类型。
+        /// </summary>
+        /// <param name="value">要反序列化的字符串的值。</param>
+        /// <param name="type">指定的类型。</param>
+        /// <returns></returns>
+        public static object TryDeserialize(string value, Type type)
+        {
+            return TryUtil.ExecuteResult(() => Deserialize(value, type));
+        }
+
+        /// <summary>
         /// 将JSON反序列化为指定的对象类型。
         /// </summary>
         /// <typeparam name="T">对象类型。</typeparam>
         /// <param name="value">要反序列化的字符串的值。</param>
         /// <returns></returns>
-        public static T Deserialize<T>(string value)
+        public static T Deserialize<T>(string value) where T : class
         {
             return JsonConvert.DeserializeObject<T>(value);
+        }
+
+        /// <summary>
+        /// 尝试将JSON反序列化为指定的对象类型。
+        /// </summary>
+        /// <typeparam name="T">对象类型。</typeparam>
+        /// <param name="value">要反序列化的字符串的值。</param>
+        /// <returns></returns>
+        public static T TryDeserialize<T>(string value) where T : class
+        {
+            return TryUtil.ExecuteResult(Deserialize<T>, value);
         }
 
         /// <summary>
@@ -86,16 +118,21 @@ namespace NShine.Core.Utils
         /// <param name="value">要反序列化的字符串的值。</param>
         /// <param name="anonymousTypeObject">匿名类型对象。</param>
         /// <returns></returns>
-        public static T Deserialize<T>(string value, T anonymousTypeObject)
+        public static T Deserialize<T>(string value, T anonymousTypeObject) where T : class
         {
-            try
-            {
-                return JsonConvert.DeserializeAnonymousType(value, anonymousTypeObject);
-            }
-            catch
-            {
-                return anonymousTypeObject;
-            }
+            return JsonConvert.DeserializeAnonymousType(value, anonymousTypeObject);
+        }
+
+        /// <summary>
+        /// 尝试将JSON反序列化为给定的匿名类型。
+        /// </summary>
+        /// <typeparam name="T">匿名类型。</typeparam>
+        /// <param name="value">要反序列化的字符串的值。</param>
+        /// <param name="anonymousTypeObject">匿名类型对象。</param>
+        /// <returns></returns>
+        public static T TryDeserialize<T>(string value, T anonymousTypeObject) where T : class
+        {
+            return TryUtil.ExecuteResult(() => Deserialize(value, anonymousTypeObject));
         }
     }
 }

@@ -70,7 +70,7 @@ namespace NShine.Core.Utils
         /// <param name="action">要尝试执行的方法。</param>
         /// <param name="defaultValue">尝试执行发生异常，要返回的默认值。</param>
         /// <returns></returns>
-        public static TResult Execute<TResult>(Func<TResult> action, TResult defaultValue)
+        public static TResult ExecuteResult<TResult>(Func<TResult> action, TResult defaultValue = default(TResult))
         {
             var result = defaultValue;
             try
@@ -91,7 +91,7 @@ namespace NShine.Core.Utils
         /// <param name="action">要尝试执行的方法。</param>
         /// <param name="callback">尝试执行发生异常，回调的方法。</param>
         /// <returns></returns>
-        public static TResult Execute<TResult>(Func<TResult> action, Func<Exception, TResult> callback)
+        public static TResult ExecuteResult<TResult>(Func<TResult> action, Func<Exception, TResult> callback)
         {
             var result = default(TResult);
             try
@@ -117,7 +117,7 @@ namespace NShine.Core.Utils
         /// <param name="param">参数值。</param>
         /// <param name="defaultValue">尝试执行发生异常，要返回的默认值。</param>
         /// <returns></returns>
-        public static TResult Execute<TParam, TResult>(Func<TParam, TResult> action, TParam param, TResult defaultValue)
+        public static TResult ExecuteResult<TParam, TResult>(Func<TParam, TResult> action, TParam param, TResult defaultValue = default(TResult))
         {
             var result = defaultValue;
             try
@@ -140,7 +140,7 @@ namespace NShine.Core.Utils
         /// <param name="param">参数值。</param>
         /// <param name="callback">尝试执行发生异常，回调的方法。</param>
         /// <returns></returns>
-        public static TResult Execute<TParam, TResult>(Func<TParam, TResult> action, TParam param, Func<TParam, Exception, TResult> callback)
+        public static TResult ExecuteResult<TParam, TResult>(Func<TParam, TResult> action, TParam param, Func<TParam, Exception, TResult> callback)
         {
             var result = default(TResult);
             try

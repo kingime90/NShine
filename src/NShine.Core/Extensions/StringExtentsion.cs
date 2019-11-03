@@ -102,6 +102,30 @@ namespace NShine.Core.Extensions
         }
 
         /// <summary>
+        /// 移除指定字符串的匹配开头的字符串。
+        /// </summary>
+        /// <param name="value">要移除的字符串。</param>
+        /// <param name="start">匹配开头的字符串。</param>
+        /// <param name="isComplete">是否完全移除，如果为 true，将会循环完全移除，否则只移除一次（默认 true）。</param>
+        /// <returns></returns>
+        public static string RemoveStart(this string value, string start, bool isComplete = true)
+        {
+            return value.ReplaceStart(start, string.Empty, isComplete);
+        }
+
+        /// <summary>
+        /// 移除指定字符串的匹配尾部的字符串。
+        /// </summary>
+        /// <param name="value">要移除的字符串。</param>
+        /// <param name="end">匹配尾部的字符串。</param>
+        /// <param name="isComplete">是否完全移除，如果为 true，将会循环完全移除，否则只移除一次（默认 true）。</param>
+        /// <returns></returns>
+        public static string RemoveEnd(this string value, string end, bool isComplete = true)
+        {
+            return value.ReplaceEnd(end, string.Empty, isComplete);
+        }
+
+        /// <summary>
         /// 基于数组中的字符串将字符串拆分为多个子字符串（默认 移除空字符串的数组元素）。 
         /// </summary>
         /// <param name="value">要分隔的字符串。</param>

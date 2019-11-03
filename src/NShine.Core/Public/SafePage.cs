@@ -1,4 +1,6 @@
-﻿namespace NShine.Core.Public
+﻿using NShine.Core.Extensions;
+
+namespace NShine.Core.Public
 {
     /// <summary>
     /// 安全的分页信息。
@@ -38,7 +40,7 @@
             }
             set
             {
-                _pageNumber = value.GetValueOrDefault();
+                _pageNumber = value.OrDefault();
                 // 1 <= pageNumber
                 if (_pageNumber <= 0)
                 {
@@ -60,7 +62,7 @@
             }
             set
             {
-                _pageSize = value.GetValueOrDefault();
+                _pageSize = value.OrDefault();
                 // 5 <= pageSize <= 200
                 if (_pageSize < 5)
                 {
