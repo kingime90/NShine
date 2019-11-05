@@ -116,7 +116,7 @@
     <Compile Include="Options\CompareOption.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Public\SafePage.cs" />
-    <Compile Include="Public\ParameterRebinder.cs" />
+    <Compile Include="Lambda\ParameterRebinder.cs" />
     <Compile Include="Reflection\AssemblyFinderBase.cs" />
     <Compile Include="Reflection\DirectoryAssemblyFinder.cs" />
     <Compile Include="Reflection\FinderBase.cs" />

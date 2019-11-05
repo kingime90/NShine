@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using System.Collections.Generic;
 
-namespace NShine.Core.Public
+namespace NShine.Core.Lambda
 {
     /// <summary>
     /// 参数绑定。

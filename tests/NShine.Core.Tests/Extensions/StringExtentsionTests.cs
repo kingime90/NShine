@@ -54,10 +54,6 @@ namespace NShine.Core.Tests.Extensions
             value = " ";
             result = value.OrDefault();
             Assert.AreEqual(result, string.Empty);
-
-            value = " ";
-            result = value.OrDefault(false);
-            Assert.AreEqual(result, " ");
         }
 
         /// <summary>

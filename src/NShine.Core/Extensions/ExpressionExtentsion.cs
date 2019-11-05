@@ -1,7 +1,7 @@
-﻿using NShine.Core.Public;
-using System;
+﻿using System;
 using System.Linq;
 using System.Linq.Expressions;
+using NShine.Core.Lambda;
 
 namespace NShine.Core.Extensions
 {
