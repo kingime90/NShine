@@ -1,6 +1,6 @@
 ﻿using NShine.Core.Data;
+using NShine.Core.Extensions;
 using NShine.Core.Tests.Data.Records;
-using NShine.Core.Valids;
 using NUnit.Framework;
 
 namespace NShine.Core.Tests.Data
@@ -35,6 +35,7 @@ namespace NShine.Core.Tests.Data
                 Mobile = "13000000000",
             };
             repository.Create(userRecord);
+            //repository.Count();
         }
     }
 }

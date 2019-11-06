@@ -49,6 +49,7 @@ namespace NShine.Core.Utils
         /// 构建分页集合。
         /// </summary>
         /// <typeparam name="T">数据项类型。</typeparam>
+        /// <param name="totalCount">总记录数。</param>
         /// <param name="page">分页信息接口。</param>
         /// <param name="items">数据项集合。</param>
         /// <returns></returns>

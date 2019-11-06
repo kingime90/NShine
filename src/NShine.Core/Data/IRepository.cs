@@ -42,19 +42,19 @@ namespace NShine.Core.Data
         /// <summary>
         /// 删除单个数据记录。
         /// </summary>
-        /// <param name="record"></param>
+        /// <param name="record">数据记录实例。</param>
         void Delete(TRecord record);
 
         /// <summary>
         /// 删除数据记录集合。
         /// </summary>
-        /// <param name="record">数据记录实例集合。</param>
+        /// <param name="records">数据记录实例集合。</param>
         void Delete(IEnumerable<TRecord> records);
 
         /// <summary>
         /// 删除数据记录集合。
         /// </summary>
-        /// <param name="record">筛选表达式。</param>
+        /// <param name="predicate">筛选表达式。</param>
         void Delete(Expression<Func<TRecord, bool>> predicate);
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace NShine.Core.Data
         /// </summary>
         /// <param name="predicate">筛选表达式。</param>
         /// <returns></returns>
-        int Count(Expression<Func<TRecord, bool>> predicate = null);
+        int Count(Expression<Func<TRecord, bool>> predicate);
 
         /// <summary>
         /// 是否存在符合指定筛选表达式的数据。
@@ -90,13 +90,13 @@ namespace NShine.Core.Data
         /// </summary>
         /// <param name="keys">主键值集合。</param>
         /// <returns></returns>
-        IEnumerable<TRecord> GetByKeys(IEnumerable<TKey> keys);
+        IEnumerable<TRecord> Get(IEnumerable<TKey> keys);
 
         /// <summary>
         /// 获取单个数据记录实例。
         /// </summary>
         /// <param name="predicate">筛选表达式。</param>
-        /// <param name="predicate">排序选择器数组。</param>
+        /// <param name="orderSelectors">排序选择器数组。</param>
         /// <returns></returns>
         TRecord Single(Expression<Func<TRecord, bool>> predicate, params OrderSelector<TRecord>[] orderSelectors);
 
@@ -104,7 +104,7 @@ namespace NShine.Core.Data
         /// 获取数据记录实例集合。
         /// </summary>
         /// <param name="predicate">筛选表达式。</param>
-        /// <param name="predicate">排序选择器数组。</param>
+        /// <param name="orderSelectors">排序选择器数组。</param>
         /// <returns></returns>
         IEnumerable<TRecord> Fetch(Expression<Func<TRecord, bool>> predicate, params OrderSelector<TRecord>[] orderSelectors);
 
@@ -114,7 +114,7 @@ namespace NShine.Core.Data
         /// <typeparam name="TResult">数据结果类型。</typeparam>
         /// <param name="selector">要应用于每个元素投影函数。</param>
         /// <param name="predicate">筛选表达式。</param>
-        /// <param name="predicate">排序选择器数组。</param>
+        /// <param name="orderSelectors">排序选择器数组。</param>
         /// <returns></returns>
         IEnumerable<TResult> Fetch<TResult>(Expression<Func<TRecord, TResult>> selector, Expression<Func<TRecord, bool>> predicate, params OrderSelector<TRecord>[] orderSelectors);
 
@@ -123,7 +123,7 @@ namespace NShine.Core.Data
         /// </summary>
         /// <param name="predicate">筛选表达式。</param>
         /// <param name="page">分页信息接口。</param>
-        /// <param name="predicate">排序选择器数组。</param>
+        /// <param name="orderSelectors">排序选择器数组。</param>
         /// <returns></returns>
         IPageOfItems<TRecord> PageOfItems(Expression<Func<TRecord, bool>> predicate, IPage page, params OrderSelector<TRecord>[] orderSelectors);
 
@@ -134,7 +134,7 @@ namespace NShine.Core.Data
         /// <param name="selector">要应用于每个元素投影函数。</param>
         /// <param name="predicate">筛选表达式。</param>
         /// <param name="page">分页信息接口。</param>
-        /// <param name="predicate">排序选择器数组。</param>
+        /// <param name="orderSelectors">排序选择器数组。</param>
         /// <returns></returns>
         IPageOfItems<TResult> PageOfItems<TResult>(Expression<Func<TRecord, TResult>> selector, Expression<Func<TRecord, bool>> predicate, IPage page, params OrderSelector<TRecord>[] orderSelectors);
     }

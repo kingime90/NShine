@@ -64,6 +64,8 @@
     <Compile Include="Data\Mapper\UiidMapperBase.cs" />
     <Compile Include="Data\Mapper\DefaultUsidMapper.cs" />
     <Compile Include="Data\Mapper\UsidMapperBase.cs" />
+    <Compile Include="Data\Record\IOrderByDesc.cs" />
+    <Compile Include="Data\Record\IOrderByAsc.cs" />
     <Compile Include="Data\Record\CreateableGuidRecord.cs" />
     <Compile Include="Data\Record\CreateableUsid19Record.cs" />
     <Compile Include="Data\Record\EditableGuidRecord.cs" />
@@ -97,6 +99,7 @@
     <Compile Include="Dependency\ServiceDescriptor.cs" />
     <Compile Include="Dependency\SingletonDependencyTypeFinder.cs" />
     <Compile Include="Dependency\TransientDependencyTypeFinder.cs" />
+    <Compile Include="Extensions\IRepositoryExtentsion.cs" />
     <Compile Include="Extensions\ExpressionExtentsion.cs" />
     <Compile Include="Extensions\ServiceCollectionExtensions.cs" />
     <Compile Include="Options\LifetimeOption.cs" />
@@ -124,6 +127,7 @@
     <Compile Include="Reflection\IFinder.cs" />
     <Compile Include="Reflection\ITypeFinder.cs" />
     <Compile Include="Reflection\ImplementTypeFinderBase.cs" />
+    <Compile Include="Utils\ExpressionUtil.cs" />
     <Compile Include="Utils\JsonUtil.cs" />
     <Compile Include="Utils\KeyGeneratorUtil.cs" />
     <Compile Include="Utils\OrderUtil.cs" />

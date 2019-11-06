@@ -32,6 +32,11 @@ namespace NShine.Core.Data
         /// <param name="record">数据记录实例。</param>
         public virtual void Create(TRecord record)
         {
+            if (record == null)
+            {
+                return;
+            }
+            //
             record.CheckCreate(DateTime.Now, 0);
             _dbSet.Add(record);
         }
@@ -42,6 +47,11 @@ namespace NShine.Core.Data
         /// <param name="records">数据记录实例集合。</param>
         public virtual void Create(IEnumerable<TRecord> records)
         {
+            if (records.IsEmpty())
+            {
+                return;
+            }
+            //
             foreach (var record in records)
             {
                 record.CheckCreate(DateTime.Now, 0);
@@ -75,7 +85,7 @@ namespace NShine.Core.Data
         /// <summary>
         /// 删除单个数据记录。
         /// </summary>
-        /// <param name="record"></param>
+        /// <param name="record">数据记录实例。</param>
         public virtual void Delete(TRecord record)
         {
             if (record == null)
@@ -89,7 +99,7 @@ namespace NShine.Core.Data
         /// <summary>
         /// 删除数据记录集合。
         /// </summary>
-        /// <param name="record">数据记录实例集合。</param>
+        /// <param name="records">数据记录实例集合。</param>
         public virtual void Delete(IEnumerable<TRecord> records)
         {
             if (records.IsEmpty())
@@ -103,7 +113,7 @@ namespace NShine.Core.Data
         /// <summary>
         /// 删除数据记录集合。
         /// </summary>
-        /// <param name="record">筛选表达式。</param>
+        /// <param name="predicate">筛选表达式。</param>
         public virtual void Delete(Expression<Func<TRecord, bool>> predicate)
         {
 
@@ -123,7 +133,7 @@ namespace NShine.Core.Data
         /// </summary>
         /// <param name="predicate">筛选表达式。</param>
         /// <returns></returns>
-        public virtual int Count(Expression<Func<TRecord, bool>> predicate = null)
+        public virtual int Count(Expression<Func<TRecord, bool>> predicate)
         {
             return predicate != null ? Queryable.Count(predicate) : Queryable.Count();
         }
@@ -158,8 +168,13 @@ namespace NShine.Core.Data
         /// </summary>
         /// <param name="keys">主键值集合。</param>
         /// <returns></returns>
-        public virtual IEnumerable<TRecord> GetByKeys(IEnumerable<TKey> keys)
+        public virtual IEnumerable<TRecord> Get(IEnumerable<TKey> keys)
         {
+            if (keys.IsEmpty())
+            {
+                return Enumerable.Empty<TRecord>();
+            }
+            //
             return Queryable.Where(p => keys.Contains(p.Id)).ToList();
         }
 
@@ -167,7 +182,7 @@ namespace NShine.Core.Data
         /// 获取单个数据记录实例。
         /// </summary>
         /// <param name="predicate">筛选表达式。</param>
-        /// <param name="predicate">排序选择器数组。</param>
+        /// <param name="orderSelectors">排序选择器数组。</param>
         /// <returns></returns>
         public virtual TRecord Single(Expression<Func<TRecord, bool>> predicate, params OrderSelector<TRecord>[] orderSelectors)
         {
@@ -178,7 +193,7 @@ namespace NShine.Core.Data
         /// 获取数据记录实例集合。
         /// </summary>
         /// <param name="predicate">筛选表达式。</param>
-        /// <param name="predicate">排序选择器数组。</param>
+        /// <param name="orderSelectors">排序选择器数组。</param>
         /// <returns></returns>
         public virtual IEnumerable<TRecord> Fetch(Expression<Func<TRecord, bool>> predicate, params OrderSelector<TRecord>[] orderSelectors)
         {
@@ -191,10 +206,15 @@ namespace NShine.Core.Data
         /// <typeparam name="TResult">数据结果类型。</typeparam>
         /// <param name="selector">要应用于每个元素投影函数。</param>
         /// <param name="predicate">筛选表达式。</param>
-        /// <param name="predicate">排序选择器数组。</param>
+        /// <param name="orderSelectors">排序选择器数组。</param>
         /// <returns></returns>
         public virtual IEnumerable<TResult> Fetch<TResult>(Expression<Func<TRecord, TResult>> selector, Expression<Func<TRecord, bool>> predicate, params OrderSelector<TRecord>[] orderSelectors)
         {
+            if (selector == null)
+            {
+                return Enumerable.Empty<TResult>();
+            }
+            //
             return BuildQueryable(predicate, null, orderSelectors).Select(selector).ToList();
         }
 
@@ -203,18 +223,18 @@ namespace NShine.Core.Data
         /// </summary>
         /// <param name="predicate">筛选表达式。</param>
         /// <param name="page">分页信息接口。</param>
-        /// <param name="predicate">排序选择器数组。</param>
+        /// <param name="orderSelectors">排序选择器数组。</param>
         /// <returns></returns>
         public virtual IPageOfItems<TRecord> PageOfItems(Expression<Func<TRecord, bool>> predicate, IPage page, params OrderSelector<TRecord>[] orderSelectors)
         {
-            var totalRecord = Count(predicate);
             var safePage = PageUtil.GetSafePage(page);
-            if (totalRecord == 0)
+            var totalCount = Count(predicate);
+            if (totalCount == 0)
             {
                 return PageUtil.Empty<TRecord>(safePage);
             }
             //
-            return PageUtil.Items(totalRecord, safePage,
+            return PageUtil.Items(totalCount, safePage,
                 BuildQueryable(predicate, safePage, orderSelectors).ToList());
         }
 
@@ -225,18 +245,18 @@ namespace NShine.Core.Data
         /// <param name="selector">要应用于每个元素投影函数。</param>
         /// <param name="predicate">筛选表达式。</param>
         /// <param name="page">分页信息接口。</param>
-        /// <param name="predicate">排序选择器数组。</param>
+        /// <param name="orderSelectors">排序选择器数组。</param>
         /// <returns></returns>
         public virtual IPageOfItems<TResult> PageOfItems<TResult>(Expression<Func<TRecord, TResult>> selector, Expression<Func<TRecord, bool>> predicate, IPage page, params OrderSelector<TRecord>[] orderSelectors)
         {
-            var totalRecord = Count(predicate);
             var safePage = PageUtil.GetSafePage(page);
-            if (totalRecord == 0)
+            int totalCount;
+            if (selector == null || (totalCount = Count(predicate)) == 0)
             {
                 return PageUtil.Empty<TResult>(safePage);
             }
             //
-            return PageUtil.Items(totalRecord, safePage,
+            return PageUtil.Items(totalCount, safePage,
                 BuildQueryable(predicate, safePage, orderSelectors).Select(selector).ToList());
         }
 
@@ -247,22 +267,26 @@ namespace NShine.Core.Data
         /// </summary>
         /// <param name="predicate">筛选表达式。</param>
         /// <param name="page">分页信息接口。</param>
-        /// <param name="predicate">排序选择器数组。</param>
+        /// <param name="orderSelectors">排序选择器数组。</param>
         /// <returns></returns>
         protected IQueryable<TRecord> BuildQueryable(Expression<Func<TRecord, bool>> predicate, IPage page, params OrderSelector<TRecord>[] orderSelectors)
         {
             IQueryable<TRecord> queryable = Queryable;
+            //数据过滤
             if (predicate != null)
             {
                 queryable = queryable.Where(predicate);
             }
+            //
             var hasPage = page != null;
             if (hasPage && orderSelectors.IsEmpty())
             {
-                //默认Id升序
-                orderSelectors = new OrderSelector<TRecord>[] { OrderUtil.Ascending<TRecord>(s => new { s.Id }) };
+                //构建分页默认排序
+                orderSelectors = new OrderSelector<TRecord>[] { OrderUtil.Build<TKey, TRecord>() };
             }
-            queryable = OrderUtil.OrderBy(queryable, orderSelectors);
+            //构建排序
+            queryable = OrderUtil.Build(queryable, orderSelectors);
+            //分页
             if (hasPage)
             {
                 queryable = queryable.Skip(page.PageSize.Value * (page.PageNumber.Value - 1)).Take(page.PageSize.Value);
