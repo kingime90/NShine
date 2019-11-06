@@ -31,14 +31,14 @@ namespace NShine.Core.Extensions
         }
 
         /// <summary>
-        /// 比较两个字符串值是否相同，忽略大小写。
+        /// 确定此字符串是否与另一个指定的 System.String 对象具有相同的值，忽略大小写。
         /// </summary>
-        /// <param name="first">第一个字符串的值。</param>
-        /// <param name="second">第二个字符串的值。</param>
+        /// <param name="value">要测试的字符串。</param>
+        /// <param name="compareValue">要与此实例进行比较的字符串。</param>
         /// <returns></returns>
-        public static bool EqualsIgnoreCase(this string first, string second)
+        public static bool EqualsIgnoreCase(this string value, string compareValue)
         {
-            return first.Equals(second, StringComparison.OrdinalIgnoreCase);
+            return value.Equals(compareValue, StringComparison.OrdinalIgnoreCase);
         }
 
         /// <summary>
