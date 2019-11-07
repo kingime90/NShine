@@ -1,7 +1,7 @@
 ﻿namespace NShine.Core.Data.Record
 {
     /// <summary>
-    /// 定义升序排序接口（优先）。
+    /// 定义升序排序数据记录接口（与<see cref="IOrderByDesc"/>互斥，只能继承其中一个）。
     /// </summary>
     public interface IOrderByAsc
     {

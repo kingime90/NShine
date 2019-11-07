@@ -38,9 +38,11 @@ namespace NShine.Core.Utils
         /// <summary>
         /// 构建默认排序。
         /// 优先级：
-        /// 1、IOrderByAsc   Priority 升序。
-        /// 2、IOrderByDesc  Priority 降序。
-        /// 3、IRecord<TKey> Id 升序。
+        /// 1、IOrderByAsc    Priority      升序。
+        /// 2、IOrderByDesc   Priority      降序。
+        /// 3、IModifiedTime  ModifiedTime  降序。
+        /// 4、ICreatedTime   CreatedTime   降序。
+        /// 5、IRecord<TKey>  Id            升序。
         /// </summary>
         /// <typeparam name="TKey">主键类型。</typeparam>
         /// <typeparam name="TRecord">数据记录类型。</typeparam>
@@ -49,17 +51,28 @@ namespace NShine.Core.Utils
             where TRecord : class, IRecord<TKey>, new()
             where TKey : IEquatable<TKey>
         {
-            //继承升序排序接口
-            if (typeof(TRecord).IsSubclassOf(typeof(IOrderByAsc)))
+            //继承升序排序数据记录接口，升序
+            var recordType = typeof(TRecord);
+            if (recordType.IsSubclassOf(typeof(IOrderByAsc)))
             {
                 return Ascending(ExpressionUtil.PropertySelector<TRecord>("Priority"));
             }
-            //继承降序排序接口
-            if (typeof(TRecord).IsSubclassOf(typeof(IOrderByDesc)))
+            //继承降序排序数据记录接口，降序
+            if (recordType.IsSubclassOf(typeof(IOrderByDesc)))
             {
                 return Descending(ExpressionUtil.PropertySelector<TRecord>("Priority"));
             }
-            //默认 主键ID升序
+            //继承最后修改时间数据记录接口，降序
+            if (recordType.IsSubclassOf(typeof(IModifiedTime)))
+            {
+                return Descending(ExpressionUtil.PropertySelector<TRecord>("ModifiedTime"));
+            }
+            //继承创建时间数据记录接口，降序
+            if (recordType.IsSubclassOf(typeof(ICreatedTime)))
+            {
+                return Descending(ExpressionUtil.PropertySelector<TRecord>("CreatedTime"));
+            }
+            //默认 主键ID，升序
             return Ascending<TRecord>(s => new { s.Id });
         }
 
