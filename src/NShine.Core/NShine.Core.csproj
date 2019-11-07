@@ -127,6 +127,7 @@
     <Compile Include="Reflection\IFinder.cs" />
     <Compile Include="Reflection\ITypeFinder.cs" />
     <Compile Include="Reflection\ImplementTypeFinderBase.cs" />
+    <Compile Include="Utils\CloneableUtil.cs" />
     <Compile Include="Utils\ExpressionUtil.cs" />
     <Compile Include="Utils\JsonUtil.cs" />
     <Compile Include="Utils\KeyGeneratorUtil.cs" />
