@@ -64,6 +64,8 @@
     <Compile Include="Data\Mapper\UiidMapperBase.cs" />
     <Compile Include="Data\Mapper\DefaultUsidMapper.cs" />
     <Compile Include="Data\Mapper\UsidMapperBase.cs" />
+    <Compile Include="Data\Record\IModifier.cs" />
+    <Compile Include="Data\Record\IModifiedTime.cs" />
     <Compile Include="Data\Record\IOrderByDesc.cs" />
     <Compile Include="Data\Record\IOrderByAsc.cs" />
     <Compile Include="Data\Record\CreateableGuidRecord.cs" />
