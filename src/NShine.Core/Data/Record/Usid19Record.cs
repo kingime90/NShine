@@ -19,5 +19,14 @@ namespace NShine.Core.Data.Record
         {
             Id = KeyGeneratorUtil.NewUsid19().ToString();
         }
+
+        /// <summary>
+        /// 获取主键长度。
+        /// </summary>
+        /// <returns></returns>
+        public int KeyLength()
+        {
+            return 19;
+        }
     }
 }

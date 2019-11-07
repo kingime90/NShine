@@ -11,5 +11,11 @@
         /// 2、如果没有手动生成主键，创建数据记录，将会生成主键。
         /// </summary>
         void GenerateKey();
+
+        /// <summary>
+        /// 获取主键长度。
+        /// </summary>
+        /// <returns></returns>
+        int KeyLength();
     }
 }

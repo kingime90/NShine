@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.ComponentModel.DataAnnotations.Schema;
 using NShine.Core.Data.Record;
 
@@ -18,8 +19,11 @@ namespace NShine.Core.Data.Mapper
         /// </summary>
         protected override void KeyMapping()
         {
+            var usidRecord = (IUsidRecord)Activator.CreateInstance<TRecord>();
+            //主键长度 + 10（扩展）
+            var keyLength = usidRecord.KeyLength() + 10;
             //主键值手动模式
-            Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None).IsUnicode(false).HasMaxLength(36);
+            Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None).IsUnicode(false).HasMaxLength(keyLength);
         }
     }
 }

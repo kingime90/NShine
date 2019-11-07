@@ -24,6 +24,15 @@ namespace NShine.Core.Public
         }
 
         /// <summary>
+        /// 初始化一个<see cref="OrderSelector{T}"/>类型的新实例（默认 按升序排序）。
+        /// </summary>
+        /// <param name="keySelectors">用于从元素中提取键的函数集合。</param>
+        public OrderSelector(IEnumerable<Expression<Func<T, object>>> keySelectors)
+        {
+            _keySelectors = new ReadOnlyList<Expression<Func<T, object>>>(keySelectors);
+        }
+
+        /// <summary>
         /// 初始化一个<see cref="OrderSelector{T}"/>类型的新实例。
         /// </summary>
         /// <param name="sortDirection">排序方向。</param>
@@ -33,6 +42,15 @@ namespace NShine.Core.Public
             SortDirection = sortDirection;
         }
 
+        /// <summary>
+        /// 初始化一个<see cref="OrderSelector{T}"/>类型的新实例。
+        /// </summary>
+        /// <param name="sortDirection">排序方向。</param>
+        /// <param name="keySelectors">用于从元素中提取键的函数集合。</param>
+        public OrderSelector(ListSortDirection sortDirection, IEnumerable<Expression<Func<T, object>>> keySelectors) : this(keySelectors)
+        {
+            SortDirection = sortDirection;
+        }
 
         /// <summary>
         /// 用于从元素中提取键的函数列表。

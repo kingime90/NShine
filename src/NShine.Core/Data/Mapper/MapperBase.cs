@@ -38,8 +38,9 @@ namespace NShine.Core.Data.Mapper
         {
             //配置主键
             HasKey(p => p.Id);
-
+            //主键映射。
             KeyMapping();
+            //属性映射。
             PropertyMapping();
             configurations.Add(this);
         }

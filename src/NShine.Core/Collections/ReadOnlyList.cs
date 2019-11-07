@@ -1,6 +1,6 @@
-﻿using NShine.Core.Extensions;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using NShine.Core.Extensions;
 
 namespace NShine.Core.Collections
 {
@@ -10,27 +10,40 @@ namespace NShine.Core.Collections
     /// <typeparam name="T">对象类型。</typeparam>
     public class ReadOnlyList<T> : IReadOnlyList<T>
     {
-        private readonly List<T> _collection;
+        private readonly List<T> _items;
 
         /// <summary>
         /// 初始化一个<see cref="ReadOnlyList{T}"/>类型的新实例。
         /// </summary>
         public ReadOnlyList()
         {
-            _collection = new List<T>();
+            _items = new List<T>();
         }
 
         /// <summary>
         /// 初始化一个<see cref="ReadOnlyList{T}"/>类型的新实例。
         /// </summary>
-        /// <param name="collection">对象集合。</param>
-        public ReadOnlyList(IEnumerable<T> collection) : this()
+        /// <param name="collection">数据项集合。</param>
+        public ReadOnlyList(IEnumerable<T> items) : this()
         {
-            if (collection.IsEmpty())
+            if (items.IsEmpty())
             {
                 return;
             }
-            _collection.AddRange(collection);
+            _items.AddRange(items);
+        }
+
+        /// <summary>
+        /// 初始化一个<see cref="ReadOnlyList{T}"/>类型的新实例。
+        /// </summary>
+        /// <param name="collection">数据项数组。</param>
+        public ReadOnlyList(params T[] items) : this()
+        {
+            if (items.IsEmpty())
+            {
+                return;
+            }
+            _items.AddRange(items);
         }
 
         /// <summary>
@@ -42,7 +55,7 @@ namespace NShine.Core.Collections
         {
             get
             {
-                return _collection[index];
+                return _items[index];
             }
         }
 
@@ -53,7 +66,7 @@ namespace NShine.Core.Collections
         {
             get
             {
-                return _collection.Count;
+                return _items.Count;
             }
         }
 
@@ -63,7 +76,7 @@ namespace NShine.Core.Collections
         /// <returns></returns>
         public IEnumerator<T> GetEnumerator()
         {
-            return _collection.GetEnumerator();
+            return _items.GetEnumerator();
         }
 
         /// <summary>

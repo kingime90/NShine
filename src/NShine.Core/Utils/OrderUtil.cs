@@ -2,6 +2,7 @@
 using NShine.Core.Extensions;
 using NShine.Core.Public;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Linq.Expressions;
@@ -25,12 +26,34 @@ namespace NShine.Core.Utils
         }
 
         /// <summary>
+        /// 按升序排序。
+        /// </summary>
+        /// <typeparam name="T">泛型元素类型。</typeparam>
+        /// <param name="keySelectors">用于从元素中提取键的函数集合。</param>
+        /// <returns></returns>
+        public static OrderSelector<T> Ascending<T>(IEnumerable<Expression<Func<T, object>>> keySelectors) where T : class
+        {
+            return new OrderSelector<T>(keySelectors);
+        }
+
+        /// <summary>
         /// 按降序排序。
         /// </summary>
         /// <typeparam name="T">泛型元素类型。</typeparam>
         /// <param name="keySelectors">用于从元素中提取键的函数数组。</param>
         /// <returns></returns>
         public static OrderSelector<T> Descending<T>(params Expression<Func<T, object>>[] keySelectors) where T : class
+        {
+            return new OrderSelector<T>(ListSortDirection.Descending, keySelectors);
+        }
+
+        /// <summary>
+        /// 按降序排序。
+        /// </summary>
+        /// <typeparam name="T">泛型元素类型。</typeparam>
+        /// <param name="keySelectors">用于从元素中提取键的函数集合。</param>
+        /// <returns></returns>
+        public static OrderSelector<T> Descending<T>(IEnumerable<Expression<Func<T, object>>> keySelectors) where T : class
         {
             return new OrderSelector<T>(ListSortDirection.Descending, keySelectors);
         }
