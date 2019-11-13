@@ -12,24 +12,24 @@ namespace NShine.Core.Options
         /// 大于和小于
         /// </summary>
         [Description("大于和小于")]
-        GreaterAndLess,
+        GtAndLt,
 
         /// <summary>
         /// 大于等于和小于
         /// </summary>
         [Description("大于等于和小于")]
-        GreaterEqAndLess,
+        GeAndLt,
 
         /// <summary>
         /// 大于和小于等于
         /// </summary>
         [Description("大于和小于等于")]
-        GreaterAndLessEq,
+        GtAndLe,
 
         /// <summary>
         /// 大于等于和小于等于
         /// </summary>
         [Description("大于等于和小于等于")]
-        GreaterEqAndLessEq,
+        GeAndLe,
     }
 }

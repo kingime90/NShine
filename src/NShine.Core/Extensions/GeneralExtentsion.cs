@@ -77,23 +77,23 @@ namespace NShine.Core.Extensions
         /// <param name="value">要测试的值。</param>
         /// <param name="minValue">指定的范围最小值。</param>
         /// <param name="maxValue">指定的范围最大值。</param>
-        /// <param name="compareOption">比较选项（默认 <see cref="CompareOption.GreaterEqAndLessEq"/>）。</param>
+        /// <param name="compareOption">比较选项（默认 <see cref="CompareOption.GeAndLe"/>）。</param>
         /// <returns></returns>
-        public static bool IsRange<T>(this T value, T minValue, T maxValue, CompareOption compareOption = CompareOption.GreaterEqAndLessEq) where T : struct, IComparable
+        public static bool IsRange<T>(this T value, T minValue, T maxValue, CompareOption compareOption = CompareOption.GeAndLe) where T : struct, IComparable
         {
             bool result = false;
             switch (compareOption)
             {
-                case CompareOption.GreaterAndLess:
+                case CompareOption.GtAndLt:
                     result = value.IsGreater(minValue) && value.IsLess(maxValue);
                     break;
-                case CompareOption.GreaterEqAndLess:
+                case CompareOption.GeAndLt:
                     result = value.IsGreaterEqual(minValue) && value.IsLess(maxValue);
                     break;
-                case CompareOption.GreaterAndLessEq:
+                case CompareOption.GtAndLe:
                     result = value.IsGreater(minValue) && value.IsLessEqual(maxValue);
                     break;
-                case CompareOption.GreaterEqAndLessEq:
+                case CompareOption.GeAndLe:
                     result = value.IsGreaterEqual(minValue) && value.IsLessEqual(maxValue);
                     break;
             }
