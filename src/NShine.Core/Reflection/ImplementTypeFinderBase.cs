@@ -20,7 +20,7 @@ namespace NShine.Core.Reflection
         /// <summary>
         /// 获取或设置 程序集查找器。
         /// </summary>
-        public virtual IAssemblyFinder AssemblyFinder { get; set; }
+        public IAssemblyFinder AssemblyFinder { get; private set; }
 
         /// <summary>
         /// 查找所有项。

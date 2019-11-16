@@ -1,5 +1,6 @@
 ﻿using NShine.Core.Collections;
 using NShine.Core.Data.Record;
+using NShine.Core.Dependency;
 using NShine.Core.Public;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace NShine.Core.Data
     /// </summary>
     /// <typeparam name="TKey">主键类型。</typeparam>
     /// <typeparam name="TRecord">数据记录类型。</typeparam>
-    public interface IRepository<TKey, TRecord> where TRecord : class, IRecord<TKey>, new()
+    public interface IRepository<TKey, TRecord> : ITransientDependency where TRecord : class, IRecord<TKey>, new()
         where TKey : IEquatable<TKey>
     {
         /// <summary>

@@ -8,7 +8,7 @@ namespace NShine.Core.Extensions
     /// <summary>
     /// 依赖注入映射描述信息集合扩展方法。
     /// </summary>
-    public static class ServiceCollectionExtensions
+    public static class ServiceCollectionExtension
     {
         /// <summary>
         /// 添加实时生命周期类型的依赖注入映射描述信息到服务映射信息集合中。

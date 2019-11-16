@@ -89,6 +89,8 @@
     <Compile Include="Data\UiidRepository.cs" />
     <Compile Include="Data\UsidRepository.cs" />
     <Compile Include="Dependency\IDependency.cs" />
+    <Compile Include="Dependency\IIocBuilder.cs" />
+    <Compile Include="Dependency\IocBuilderBase.cs" />
     <Compile Include="Dependency\IServiceBuilder.cs" />
     <Compile Include="Dependency\IServiceCollection.cs" />
     <Compile Include="Dependency\ISingletonDependency.cs" />
@@ -101,9 +103,10 @@
     <Compile Include="Dependency\ServiceDescriptor.cs" />
     <Compile Include="Dependency\SingletonDependencyTypeFinder.cs" />
     <Compile Include="Dependency\TransientDependencyTypeFinder.cs" />
+    <Compile Include="Extensions\IAppBuilderExtentsion.cs" />
     <Compile Include="Extensions\IRepositoryExtentsion.cs" />
     <Compile Include="Extensions\ExpressionExtentsion.cs" />
-    <Compile Include="Extensions\ServiceCollectionExtensions.cs" />
+    <Compile Include="Extensions\ServiceCollectionExtension.cs" />
     <Compile Include="Options\LifetimeOption.cs" />
     <Compile Include="Options\ValidOption.cs" />
     <Compile Include="Public\IPage.cs" />
@@ -145,7 +148,10 @@
     <Compile Include="Valids\StringRule.cs" />
     <Compile Include="Valids\StringValid.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Mvc\" />
+    <Folder Include="WebApi\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
