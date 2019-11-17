@@ -1,4 +1,5 @@
 ﻿using NShine.Core.Dependency;
+using System;
 
 namespace NShine.Core.Initialize
 {
@@ -21,6 +22,10 @@ namespace NShine.Core.Initialize
         /// <param name="iocBuilder">构建依赖注入映射接口。</param>
         public void Initialize(IIocBuilder iocBuilder)
         {
+            //构建依赖注入映射
+            iocBuilder.Build();
+            //
+            IServiceProvider provider = iocBuilder.ServiceProvider;
 
         }
     }

@@ -105,7 +105,6 @@
     <Compile Include="Dependency\ServiceDescriptor.cs" />
     <Compile Include="Dependency\SingletonDependencyTypeFinder.cs" />
     <Compile Include="Dependency\TransientDependencyTypeFinder.cs" />
-    <Compile Include="Extensions\IAppBuilderExtentsion.cs" />
     <Compile Include="Extensions\IRepositoryExtentsion.cs" />
     <Compile Include="Extensions\ExpressionExtentsion.cs" />
     <Compile Include="Extensions\ServiceCollectionExtension.cs" />

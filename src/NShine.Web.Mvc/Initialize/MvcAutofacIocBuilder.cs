@@ -25,7 +25,7 @@ namespace NShine.Web.Mvc.Initialize
         /// <param name="services">服务映射信息集合。</param>
         public override void AddServices(IServiceCollection services)
         {
-            throw new NotImplementedException();
+            
         }
 
         /// <summary>

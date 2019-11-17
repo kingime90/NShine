@@ -221,6 +221,10 @@
       <Project>{f7dfdd98-368d-49f8-94ce-d1bda273f282}</Project>
       <Name>NShine.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\src\NShine.Web.Mvc\NShine.Web.Mvc.csproj">
+      <Project>{9065dac8-8299-45f3-bc7c-885653464223}</Project>
+      <Name>NShine.Web.Mvc</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -11,6 +11,14 @@ namespace NShine.Web.Mvc.Initialize
     public class MvcIocResolver : IIocResolver
     {
         /// <summary>
+        /// 初始化一个<see cref="MvcIocResolver"/>类型的新实例。
+        /// </summary>
+        public MvcIocResolver()
+        {
+
+        }
+
+        /// <summary>
         /// 从全局容器中解析对象委托。
         /// </summary>
         public static Func<Type, object> GlobalResolveFunc { private get; set; }
