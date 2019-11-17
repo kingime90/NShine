@@ -46,7 +46,7 @@ namespace NShine.Core.Dependency
             //
             AddServices(_services);
             var assemblies = AssemblyFinder.FindAll();
-            ServiceProvider = Register(_services, assemblies);
+            ServiceProvider = RegisterServices(_services, assemblies);
             _isBuilded = true;
         }
 
@@ -60,8 +60,8 @@ namespace NShine.Core.Dependency
         /// 将服务映射信息注册到依赖注入容器中。
         /// </summary>
         /// <param name="services">服务映射信息集合。</param>
-        /// <param name="assemblies">要检索的程序集集合。</param>
+        /// <param name="assemblies">要检索的程序集数组。</param>
         /// <returns></returns>
-        public abstract IServiceProvider Register(IServiceCollection services, IEnumerable<Assembly> assemblies);
+        public abstract IServiceProvider RegisterServices(IServiceCollection services, Assembly[] assemblies);
     }
 }

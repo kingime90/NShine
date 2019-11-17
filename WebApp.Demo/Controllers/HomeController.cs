@@ -1,13 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using WebApp.Demo.Services;
 
 namespace WebApp.Demo.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IUserService _userService;
+
+        private readonly IEnumerable<IUserService> _userServices;
+
+        public HomeController(IUserService userService, IEnumerable<IUserService> userServices)
+        {
+            _userService = userService;
+            _userServices = userServices;
+        }
+
         public ActionResult Index()
         {
             return View();

@@ -17,11 +17,11 @@ namespace NShine.Core.Extensions
         /// <typeparam name="TImplementation">泛型实现类型。</typeparam>
         /// <param name="collection">服务映射信息集合。</param>
         /// <returns></returns>
-        public static IServiceCollection AddTransient<TService, TImplementation>(this IServiceCollection collection)
+        public static void AddTransient<TService, TImplementation>(this IServiceCollection collection)
             where TService : class
             where TImplementation : TService
         {
-            return collection.TryAdd(ServiceDescriptor.Transient<TService, TImplementation>());
+            collection.TryAdd(ServiceDescriptor.Transient<TService, TImplementation>());
         }
 
         /// <summary>
@@ -31,9 +31,9 @@ namespace NShine.Core.Extensions
         /// <param name="serviceType">服务类型。</param>
         /// <param name="implementationType">服务实现类型。</param>
         /// <returns></returns>
-        public static IServiceCollection AddTransient(this IServiceCollection collection, Type serviceType, Type implementationType)
+        public static void AddTransient(this IServiceCollection collection, Type serviceType, Type implementationType)
         {
-            return collection.TryAdd(ServiceDescriptor.Transient(serviceType, implementationType));
+            collection.TryAdd(ServiceDescriptor.Transient(serviceType, implementationType));
         }
 
         /// <summary>
@@ -44,11 +44,11 @@ namespace NShine.Core.Extensions
         /// <param name="collection">服务映射信息集合。</param>
         /// <param name="implementationFactory">服务实现实例工厂。</param>
         /// <returns></returns>
-        public static IServiceCollection AddTransient<TService, TImplementation>(this IServiceCollection collection, Func<IServiceProvider, TImplementation> implementationFactory)
+        public static void AddTransient<TService, TImplementation>(this IServiceCollection collection, Func<IServiceProvider, TImplementation> implementationFactory)
             where TService : class
             where TImplementation : TService
         {
-            return collection.TryAdd(ServiceDescriptor.Transient<TService, TImplementation>(implementationFactory));
+            collection.TryAdd(ServiceDescriptor.Transient<TService, TImplementation>(implementationFactory));
         }
 
         /// <summary>
@@ -58,10 +58,10 @@ namespace NShine.Core.Extensions
         /// <param name="collection">服务映射信息集合。</param>
         /// <param name="implementationFactory">服务实现实例工厂。</param>
         /// <returns></returns>
-        public static IServiceCollection AddTransient<TService>(this IServiceCollection collection, Func<IServiceProvider, TService> implementationFactory)
+        public static void AddTransient<TService>(this IServiceCollection collection, Func<IServiceProvider, TService> implementationFactory)
             where TService : class
         {
-            return collection.TryAdd(ServiceDescriptor.Transient(implementationFactory));
+            collection.TryAdd(ServiceDescriptor.Transient(implementationFactory));
         }
 
         /// <summary>
@@ -71,9 +71,9 @@ namespace NShine.Core.Extensions
         /// <param name="serviceType">服务类型。</param>
         /// <param name="implementationFactory">服务实现实例工厂。</param>
         /// <returns></returns>
-        public static IServiceCollection AddTransient(this IServiceCollection collection, Type serviceType, Func<IServiceProvider, object> implementationFactory)
+        public static void AddTransient(this IServiceCollection collection, Type serviceType, Func<IServiceProvider, object> implementationFactory)
         {
-            return collection.TryAdd(ServiceDescriptor.Transient(serviceType, implementationFactory));
+            collection.TryAdd(ServiceDescriptor.Transient(serviceType, implementationFactory));
         }
 
         /// <summary>
@@ -83,11 +83,11 @@ namespace NShine.Core.Extensions
         /// <typeparam name="TImplementation">泛型实现类型。</typeparam>
         /// <param name="collection">服务映射信息集合。</param>
         /// <returns></returns>
-        public static IServiceCollection AddScope<TService, TImplementation>(this IServiceCollection collection)
+        public static void AddScope<TService, TImplementation>(this IServiceCollection collection)
             where TService : class
             where TImplementation : TService
         {
-            return collection.TryAdd(ServiceDescriptor.Scope<TService, TImplementation>());
+            collection.TryAdd(ServiceDescriptor.Scope<TService, TImplementation>());
         }
 
         /// <summary>
@@ -97,9 +97,9 @@ namespace NShine.Core.Extensions
         /// <param name="serviceType">服务类型。</param>
         /// <param name="implementationType">服务实现类型。</param>
         /// <returns></returns>
-        public static IServiceCollection AddScope(this IServiceCollection collection, Type serviceType, Type implementationType)
+        public static void AddScope(this IServiceCollection collection, Type serviceType, Type implementationType)
         {
-            return collection.TryAdd(ServiceDescriptor.Scope(serviceType, implementationType));
+            collection.TryAdd(ServiceDescriptor.Scope(serviceType, implementationType));
         }
 
         /// <summary>
@@ -110,11 +110,11 @@ namespace NShine.Core.Extensions
         /// <param name="collection">服务映射信息集合。</param>
         /// <param name="implementationFactory">服务实现实例工厂。</param>
         /// <returns></returns>
-        public static IServiceCollection AddScope<TService, TImplementation>(this IServiceCollection collection, Func<IServiceProvider, TImplementation> implementationFactory)
+        public static void AddScope<TService, TImplementation>(this IServiceCollection collection, Func<IServiceProvider, TImplementation> implementationFactory)
             where TService : class
             where TImplementation : TService
         {
-            return collection.TryAdd(ServiceDescriptor.Scope<TService, TImplementation>(implementationFactory));
+            collection.TryAdd(ServiceDescriptor.Scope<TService, TImplementation>(implementationFactory));
         }
 
         /// <summary>
@@ -124,10 +124,10 @@ namespace NShine.Core.Extensions
         /// <param name="collection">服务映射信息集合。</param>
         /// <param name="implementationFactory">服务实现实例工厂。</param>
         /// <returns></returns>
-        public static IServiceCollection AddScope<TService>(this IServiceCollection collection, Func<IServiceProvider, TService> implementationFactory)
+        public static void AddScope<TService>(this IServiceCollection collection, Func<IServiceProvider, TService> implementationFactory)
             where TService : class
         {
-            return collection.TryAdd(ServiceDescriptor.Scope(implementationFactory));
+            collection.TryAdd(ServiceDescriptor.Scope(implementationFactory));
         }
 
         /// <summary>
@@ -137,9 +137,9 @@ namespace NShine.Core.Extensions
         /// <param name="serviceType">服务类型。</param>
         /// <param name="implementationFactory">服务实现实例工厂。</param>
         /// <returns></returns>
-        public static IServiceCollection AddScope(this IServiceCollection collection, Type serviceType, Func<IServiceProvider, object> implementationFactory)
+        public static void AddScope(this IServiceCollection collection, Type serviceType, Func<IServiceProvider, object> implementationFactory)
         {
-            return collection.TryAdd(ServiceDescriptor.Scope(serviceType, implementationFactory));
+            collection.TryAdd(ServiceDescriptor.Scope(serviceType, implementationFactory));
         }
 
         /// <summary>
@@ -149,11 +149,11 @@ namespace NShine.Core.Extensions
         /// <typeparam name="TImplementation">泛型实现类型。</typeparam>
         /// <param name="collection">服务映射信息集合。</param>
         /// <returns></returns>
-        public static IServiceCollection AddSingleton<TService, TImplementation>(this IServiceCollection collection)
+        public static void AddSingleton<TService, TImplementation>(this IServiceCollection collection)
             where TService : class
             where TImplementation : TService
         {
-            return collection.TryAdd(ServiceDescriptor.Singleton<TService, TImplementation>());
+            collection.TryAdd(ServiceDescriptor.Singleton<TService, TImplementation>());
         }
 
         /// <summary>
@@ -163,9 +163,9 @@ namespace NShine.Core.Extensions
         /// <param name="serviceType">服务类型。</param>
         /// <param name="implementationType">服务实现类型。</param>
         /// <returns></returns>
-        public static IServiceCollection AddSingleton(this IServiceCollection collection, Type serviceType, Type implementationType)
+        public static void AddSingleton(this IServiceCollection collection, Type serviceType, Type implementationType)
         {
-            return collection.TryAdd(ServiceDescriptor.Singleton(serviceType, implementationType));
+            collection.TryAdd(ServiceDescriptor.Singleton(serviceType, implementationType));
         }
 
         /// <summary>
@@ -176,11 +176,11 @@ namespace NShine.Core.Extensions
         /// <param name="collection">服务映射信息集合。</param>
         /// <param name="implementationFactory">服务实现实例工厂。</param>
         /// <returns></returns>
-        public static IServiceCollection AddSingleton<TService, TImplementation>(this IServiceCollection collection, Func<IServiceProvider, TImplementation> implementationFactory)
+        public static void AddSingleton<TService, TImplementation>(this IServiceCollection collection, Func<IServiceProvider, TImplementation> implementationFactory)
             where TService : class
             where TImplementation : TService
         {
-            return collection.TryAdd(ServiceDescriptor.Singleton<TService, TImplementation>(implementationFactory));
+            collection.TryAdd(ServiceDescriptor.Singleton<TService, TImplementation>(implementationFactory));
         }
 
         /// <summary>
@@ -190,10 +190,10 @@ namespace NShine.Core.Extensions
         /// <param name="collection">服务映射信息集合。</param>
         /// <param name="implementationFactory">服务实现实例工厂。</param>
         /// <returns></returns>
-        public static IServiceCollection AddSingleton<TService>(this IServiceCollection collection, Func<IServiceProvider, TService> implementationFactory)
+        public static void AddSingleton<TService>(this IServiceCollection collection, Func<IServiceProvider, TService> implementationFactory)
             where TService : class
         {
-            return collection.TryAdd(ServiceDescriptor.Singleton(implementationFactory));
+            collection.TryAdd(ServiceDescriptor.Singleton(implementationFactory));
         }
 
         /// <summary>
@@ -203,9 +203,9 @@ namespace NShine.Core.Extensions
         /// <param name="serviceType">服务类型。</param>
         /// <param name="implementationFactory">服务实现实例工厂。</param>
         /// <returns></returns>
-        public static IServiceCollection AddSingleton(this IServiceCollection collection, Type serviceType, Func<IServiceProvider, object> implementationFactory)
+        public static void AddSingleton(this IServiceCollection collection, Type serviceType, Func<IServiceProvider, object> implementationFactory)
         {
-            return collection.TryAdd(ServiceDescriptor.Singleton(serviceType, implementationFactory));
+            collection.TryAdd(ServiceDescriptor.Singleton(serviceType, implementationFactory));
         }
 
         /// <summary>
@@ -215,10 +215,10 @@ namespace NShine.Core.Extensions
         /// <param name="collection">服务映射信息集合。</param>
         /// <param name="implementationInstance">服务实现实例。</param>
         /// <returns></returns>
-        private static IServiceCollection AddInstance<TService>(this IServiceCollection collection, TService implementationInstance)
+        public static void AddInstance<TService>(this IServiceCollection collection, TService implementationInstance)
             where TService : class
         {
-            return collection.TryAdd(ServiceDescriptor.Instance(implementationInstance));
+            collection.TryAdd(ServiceDescriptor.Instance(implementationInstance));
         }
 
         /// <summary>
@@ -228,9 +228,9 @@ namespace NShine.Core.Extensions
         /// <param name="serviceType">服务类型。</param>
         /// <param name="implementationInstance">服务实现实例。</param>
         /// <returns></returns>
-        public static IServiceCollection AddInstance(this IServiceCollection collection, Type serviceType, object implementationInstance)
+        public static void AddInstance(this IServiceCollection collection, Type serviceType, object implementationInstance)
         {
-            return collection.TryAdd(ServiceDescriptor.Instance(serviceType, implementationInstance));
+            collection.TryAdd(ServiceDescriptor.Instance(serviceType, implementationInstance));
         }
 
         /// <summary>
@@ -241,11 +241,11 @@ namespace NShine.Core.Extensions
         /// <param name="collection">服务映射信息集合。</param>
         /// <param name="lifetime">生命周期。</param>
         /// <returns></returns>
-        public static IServiceCollection Add<TService, TImplementation>(this IServiceCollection collection, LifetimeOption lifetime)
+        public static void Add<TService, TImplementation>(this IServiceCollection collection, LifetimeOption lifetime)
             where TService : class
             where TImplementation : TService
         {
-            return collection.TryAdd(ServiceDescriptor.Descriptor<TService, TImplementation>(lifetime));
+            collection.TryAdd(ServiceDescriptor.Descriptor<TService, TImplementation>(lifetime));
         }
 
         /// <summary>
@@ -256,9 +256,9 @@ namespace NShine.Core.Extensions
         /// <param name="implementationType">服务实现类型。</param>
         /// <param name="lifetime">生命周期。</param>
         /// <returns></returns>
-        public static IServiceCollection Add(this IServiceCollection collection, Type serviceType, Type implementationType, LifetimeOption lifetime)
+        public static void Add(this IServiceCollection collection, Type serviceType, Type implementationType, LifetimeOption lifetime)
         {
-            return collection.TryAdd(ServiceDescriptor.Descriptor(serviceType, implementationType, lifetime));
+            collection.TryAdd(ServiceDescriptor.Descriptor(serviceType, implementationType, lifetime));
         }
 
         /// <summary>
@@ -269,9 +269,9 @@ namespace NShine.Core.Extensions
         /// <param name="implementationInstance">服务实现实例。</param>
         /// <param name="lifetime">生命周期。</param>
         /// <returns></returns>
-        public static IServiceCollection Add(this IServiceCollection collection, Type serviceType, object implementationInstance, LifetimeOption lifetime)
+        public static void Add(this IServiceCollection collection, Type serviceType, object implementationInstance, LifetimeOption lifetime)
         {
-            return collection.TryAdd(ServiceDescriptor.Descriptor(serviceType, implementationInstance, lifetime));
+            collection.TryAdd(ServiceDescriptor.Descriptor(serviceType, implementationInstance, lifetime));
         }
 
         /// <summary>
@@ -282,9 +282,9 @@ namespace NShine.Core.Extensions
         /// <param name="implementationFactory">服务实现实例工厂。</param>
         /// <param name="lifetime">生命周期。</param>
         /// <returns></returns>
-        public static IServiceCollection Add(this IServiceCollection collection, Type serviceType, Func<IServiceProvider, object> implementationFactory, LifetimeOption lifetime)
+        public static void Add(this IServiceCollection collection, Type serviceType, Func<IServiceProvider, object> implementationFactory, LifetimeOption lifetime)
         {
-            return collection.TryAdd(ServiceDescriptor.Descriptor(serviceType, implementationFactory, lifetime));
+            collection.TryAdd(ServiceDescriptor.Descriptor(serviceType, implementationFactory, lifetime));
         }
 
         /// <summary>
@@ -292,7 +292,7 @@ namespace NShine.Core.Extensions
         /// </summary>
         /// <param name="collection">服务映射信息集合。</param>
         /// <param name="descriptor">服务映射信息。</param>
-        public static IServiceCollection TryAdd(this IServiceCollection collection, ServiceDescriptor descriptor)
+        public static void TryAdd(this IServiceCollection collection, ServiceDescriptor descriptor)
         {
             var service = collection.FirstOrDefault(p => p.ServiceType == descriptor.ServiceType && p.ImplementationType == descriptor.ImplementationType);
             if (service != null)
@@ -300,7 +300,6 @@ namespace NShine.Core.Extensions
                 collection.Remove(service);
             }
             collection.Add(descriptor);
-            return collection;
         }
     }
 }
