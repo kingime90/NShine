@@ -25,7 +25,7 @@ namespace NShine.Core.Initialize
             //构建依赖注入映射
             iocBuilder.Build();
             //
-            IServiceProvider provider = iocBuilder.ServiceProvider;
+            var provider = iocBuilder.ServiceProvider;
 
         }
     }
