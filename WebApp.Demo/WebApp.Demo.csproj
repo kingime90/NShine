@@ -224,7 +224,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NShine.Web.WebApi\NShine.Web.WebApi.csproj">
+    <ProjectReference Include="..\src\NShine.Web.WebApi\NShine.Web.WebApi.csproj">
       <Project>{CA4B656E-581C-48CC-A1AE-67A8D961192D}</Project>
       <Name>NShine.Web.WebApi</Name>
     </ProjectReference>
