@@ -13,7 +13,7 @@ namespace NShine.Web.WebApi.Initialize
         /// <returns></returns>
         public TService Resolve<TService>() where TService : class
         {
-
+            return null;
         }
 
         /// <summary>
@@ -23,7 +23,7 @@ namespace NShine.Web.WebApi.Initialize
         /// <returns></returns>
         public object Resolve(Type serviceType)
         {
-
+            return null;
         }
         /// <summary>
         /// 获取指定服务类型的服务对象集合。
@@ -32,7 +32,7 @@ namespace NShine.Web.WebApi.Initialize
         /// <returns></returns>
         public IEnumerable<TService> Resolves<TService>() where TService : class
         {
-
+            return null;
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace NShine.Web.WebApi.Initialize
         /// <returns></returns>
         public IEnumerable<object> Resolves(Type serviceType)
         {
-
+            return null;
         }
     }
 }
