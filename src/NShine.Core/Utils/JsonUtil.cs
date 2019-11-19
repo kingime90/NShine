@@ -6,7 +6,7 @@ using System;
 namespace NShine.Core.Utils
 {
     /// <summary>
-    /// JSON序列化应用。
+    /// JSON 序列化应用。
     /// </summary>
     public static class JsonUtil
     {

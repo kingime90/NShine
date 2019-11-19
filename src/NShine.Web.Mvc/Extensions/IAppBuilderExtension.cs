@@ -7,7 +7,7 @@ using System.Web.Mvc;
 namespace NShine.Web.Mvc.Extensions
 {
     /// <summary>
-    /// AppBuilder扩展方法。
+    /// <see cref="IAppBuilder"/> 扩展方法。
     /// </summary>
     public static class IAppBuilderExtension
     {
