@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B19AC91F-63B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{16240E6A-5DC2-483A-A69E-300EF774705E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NShine.Web.WebApi", "NShine.Web.WebApi\NShine.Web.WebApi.csproj", "{CA4B656E-581C-48CC-A1AE-67A8D961192D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NShine.Web.WebApi", "src\NShine.Web.WebApi\NShine.Web.WebApi.csproj", "{CA4B656E-581C-48CC-A1AE-67A8D961192D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
