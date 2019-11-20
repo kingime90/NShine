@@ -2,6 +2,8 @@
 using NShine.Core.Dependency;
 using NShine.Web.Mvc.Extensions;
 using NShine.Web.Mvc.Initialize;
+using NShine.Web.WebApi.Extensions;
+using NShine.Web.WebApi.Initialize;
 using Owin;
 using WebApp.Demo;
 
@@ -21,9 +23,9 @@ namespace WebApp.Demo
             IIocBuilder iocBuilder = new MvcAutofacIocBuilder(services);
             app.UseMvc(iocBuilder);
 
-            //IIocBuilder apiIocBuilder = new WebApiAutofacIocBuilder(services);
-            //app.UseWebApi(apiIocBuilder);
-            //app.ConfigureWebApi();
+            IIocBuilder apiIocBuilder = new WebApiAutofacIocBuilder(services);
+            app.UseWebApi(apiIocBuilder);
+            app.ConfigureWebApi();
         }
     }
 }
