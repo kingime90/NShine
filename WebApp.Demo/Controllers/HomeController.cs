@@ -16,7 +16,7 @@ namespace WebApp.Demo.Controllers
             _userServices = userServices;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(string id)
         {
             return View();
         }

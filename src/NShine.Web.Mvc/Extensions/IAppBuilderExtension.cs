@@ -18,10 +18,19 @@ namespace NShine.Web.Mvc.Extensions
         /// <param name="iocBuilder">构建依赖注入映射接口。</param>
         public static void UseMvc(this IAppBuilder app, IIocBuilder iocBuilder)
         {
-            ModelBinders.Binders.Add(typeof(string), new StringTrimModelBinder());
-
             IFrameworkInitializer framework = new FrameworkInitializer();
             framework.Initialize(iocBuilder);
+        }
+
+        /// <summary>
+        /// 配置 Mvc。
+        /// </summary>
+        /// <param name="app">应用构建器。</param>
+        /// <returns></returns>
+        public static void ConfigureMvc(this IAppBuilder app)
+        {
+            //模型绑定器
+            ModelBinders.Binders.Add(typeof(string), new StringTrimModelBinder());
         }
     }
 }

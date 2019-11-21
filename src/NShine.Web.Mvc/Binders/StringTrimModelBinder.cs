@@ -1,9 +1,10 @@
-﻿using System.Web.Mvc;
+﻿using NShine.Core.Extensions;
+using System.Web.Mvc;
 
 namespace NShine.Web.Mvc.Binders
 {
     /// <summary>
-    /// 模型字符串处理类，移除传入字符串的前后空格。
+    /// 模型绑定器，移除字符串的前后空白字符。
     /// </summary>
     public class StringTrimModelBinder : DefaultModelBinder
     {
@@ -15,14 +16,13 @@ namespace NShine.Web.Mvc.Binders
         /// <returns></returns>
         public override object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
         {
-            object value = base.BindModel(controllerContext, bindingContext);
-            string str;
-            if ((str = (value as string)) != null)
+            var value = base.BindModel(controllerContext, bindingContext);
+            if (bindingContext.ModelType.FullName != "System.String")
             {
-                return str.Trim();
+                return value;
             }
             //
-            return value;
+            return (value as string).SafeTrim();
         }
     }
 }

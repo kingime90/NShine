@@ -22,6 +22,7 @@ namespace WebApp.Demo
 
             IIocBuilder iocBuilder = new MvcAutofacIocBuilder(services);
             app.UseMvc(iocBuilder);
+            app.ConfigureMvc();
 
             IIocBuilder apiIocBuilder = new WebApiAutofacIocBuilder(services);
             app.UseWebApi(apiIocBuilder);

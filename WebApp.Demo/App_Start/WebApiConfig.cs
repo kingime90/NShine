@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using NShine.Web.WebApi.Binders;
+using System.Web.Http;
 
 namespace WebApp.Demo.App_Start
 {
@@ -6,7 +7,10 @@ namespace WebApp.Demo.App_Start
     {
         public static void Register(HttpConfiguration config)
         {
-            // Web API 路由
+            //模型绑定器
+            config.BindParameter(typeof(string), new StringTrimModelBinder());
+
+            // 启用 WebApi 特性路由
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(

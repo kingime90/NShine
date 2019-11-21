@@ -42,11 +42,11 @@ namespace NShine.Core.Extensions
         }
 
         /// <summary>
-        /// 获取字符串 或 默认字符串（默认 清空前后空白字符）。
+        /// 获取字符串 或 默认字符串（默认 移除前后空白字符）。
         /// </summary>
         /// <param name="value">字符串的值。</param>
         /// <param name="defaultValue">如果字符串的值的为 null，要返回的默认字符串。</param>
-        /// <param name="isClearWhite">是否清空前后空白字符（默认 清空）。</param>
+        /// <param name="isClearWhite">是否移除前后空白字符（默认 移除）。</param>
         /// <returns></returns>
         public static string OrDefault(this string value, string defaultValue, bool isClearWhite = true)
         {
@@ -54,7 +54,7 @@ namespace NShine.Core.Extensions
         }
 
         /// <summary>
-        /// 安全清空指定字符串前后空白字符。
+        /// 安全移除指定字符串前后空白字符。
         /// </summary>
         /// <param name="value">字符串的值。</param>
         /// <returns></returns>
