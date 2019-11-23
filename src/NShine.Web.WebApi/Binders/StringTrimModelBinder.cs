@@ -16,7 +16,7 @@ namespace NShine.Web.WebApi.Binders
 
         public bool BindModel(HttpActionContext actionContext, ModelBindingContext bindingContext)
         {
-             if (bindingContext.ModelType.FullName != "System.String")
+            if (bindingContext.ModelType.FullName != "System.String")
             {
                 return false;
             }
