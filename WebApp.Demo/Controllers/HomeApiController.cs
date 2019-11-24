@@ -1,4 +1,6 @@
-﻿using System.Web.Http;
+﻿using System.ComponentModel;
+using System.Web.Http;
+using WebApp.Demo.Models;
 using WebApp.Demo.Services;
 
 namespace WebApp.Demo.Controllers
@@ -21,9 +23,20 @@ namespace WebApp.Demo.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        public IHttpActionResult Search(string id)
+        public IHttpActionResult Search([FromBody]string id)
         {
             return Ok(id);
+        }
+
+        /// <summary>
+        /// 查询
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public IHttpActionResult Login(UserLoginModel model)
+        {
+            return Ok(model);
         }
     }
 }

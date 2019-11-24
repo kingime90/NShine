@@ -157,9 +157,7 @@
     <Compile Include="Valids\StringRule.cs" />
     <Compile Include="Valids\StringValid.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="WebApi\Initialize\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
