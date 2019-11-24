@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq.Expressions;
 
-namespace NShine.Core.Public
+namespace NShine.Core.Data
 {
     /// <summary>
     /// 排序选择器。

@@ -1,4 +1,5 @@
-﻿using NShine.Core.Options;
+﻿using NShine.Core.Extensions;
+using NShine.Core.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -70,6 +71,16 @@ namespace NShine.Core.Valid
                 //
                 if (!checkResult.Success)
                 {
+                    //补充主体名称
+                    if (checkResult.Body.IsEmpty())
+                    {
+                        checkResult.SetBody(propertyValid.Key.Name);
+                    }
+                    //补充显示名称
+                    if (checkResult.Display.IsEmpty())
+                    {
+                        checkResult.SetDisplay(propertyValid.Key.GetDescription());
+                    }
                     break;
                 }
             }

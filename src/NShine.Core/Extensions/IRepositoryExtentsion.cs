@@ -1,7 +1,6 @@
 ﻿using NShine.Core.Collections;
 using NShine.Core.Data;
 using NShine.Core.Data.Record;
-using NShine.Core.Public;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;

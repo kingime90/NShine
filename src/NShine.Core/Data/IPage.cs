@@ -1,4 +1,4 @@
-﻿namespace NShine.Core.Public
+﻿namespace NShine.Core.Data
 {
     /// <summary>
     /// 定义分页信息接口。

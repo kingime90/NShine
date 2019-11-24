@@ -23,8 +23,24 @@ namespace NShine.Core.Valid
         /// <param name="rule"></param>
         public StringValid(StringRule rule)
         {
+            if (rule == null)
+            {
+                return;
+            }
+            //
             SetRequired(rule.Required);
+            RangeLength(rule.MinLength, rule.MaxLength);
         }
+
+        /// <summary>
+        /// 主体名称。
+        /// </summary>
+        public string Body { get; private set; }
+
+        /// <summary>
+        /// 显示名称。
+        /// </summary>
+        public string Display { get; private set; }
 
         /// <summary>
         /// 设置必须。 
@@ -73,16 +89,32 @@ namespace NShine.Core.Valid
         }
 
         /// <summary>
+        /// 设置主体名称和显示名称。
+        /// </summary>
+        /// <param name="body">主体名称。</param>
+        /// <param name="display">显示名称。</param>
+        /// <returns></returns>
+        public IStringValid SetBody(string body, string display = null)
+        {
+            Body = body;
+            Display = display;
+            return this;
+        }
+
+        /// <summary>
         /// 检验。
         /// </summary>
         /// <param name="value">值。</param>
         /// <returns></returns>
         public CheckResult Check(string value)
         {
+            //成功
+            var result = new CheckResult(this);
             var hasValue = value.IsNotEmpty();
             if (Required && !hasValue)
             {
-                return new CheckResult("不能为空");
+                result.SetMessage("不能为空");
+                return result;
             }
             //
             if (hasValue)
@@ -90,21 +122,25 @@ namespace NShine.Core.Valid
                 //最小字符串长度
                 if (MinLength > 0 && MaxLength == 0 && MinLength > value.Length)
                 {
-                    return new CheckResult($"不能少于{MinLength}个字符");
+                    result.SetMessage($"不能少于{MinLength}个字符");
+                    return result;
                 }
                 //最大字符串长度
                 if (MinLength == 0 && MaxLength > 0 && MaxLength < value.Length)
                 {
-                    return new CheckResult($"不能超过{MaxLength}个字符");
+                    result.SetMessage($"不能超过{MaxLength}个字符");
+                    return result;
                 }
                 //字符串长度范围
                 if (MinLength > 0 && MinLength < MaxLength &&
                     !((uint)value.Length).IsRange(MinLength, MaxLength, CompareOption.GeAndLe))
                 {
-                    return new CheckResult($"字符长度必须在{MinLength}到{MaxLength}之间");
+                    result.SetMessage($"字符长度必须在{MinLength}到{MaxLength}之间");
+                    return result;
                 }
             }
-            return new CheckResult();
+            //
+            return result;
         }
     }
 }

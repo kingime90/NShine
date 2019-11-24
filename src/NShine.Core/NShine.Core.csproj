@@ -57,6 +57,8 @@
     <Compile Include="Collections\IPageOfItems.cs" />
     <Compile Include="Collections\PageOfItems.cs" />
     <Compile Include="Collections\ReadOnlyList.cs" />
+    <Compile Include="Public\ActionResult.cs" />
+    <Compile Include="Public\IActionResult.cs" />
     <Compile Include="Data\DbContextBase.cs" />
     <Compile Include="Data\DefaultDbContext.cs" />
     <Compile Include="Data\IUnitOfWork.cs" />
@@ -118,8 +120,8 @@
     <Compile Include="Initialize\IFrameworkInitializer.cs" />
     <Compile Include="Options\LifetimeOption.cs" />
     <Compile Include="Options\ValidOption.cs" />
-    <Compile Include="Public\IPage.cs" />
-    <Compile Include="Public\OrderSelector.cs" />
+    <Compile Include="Data\IPage.cs" />
+    <Compile Include="Data\OrderSelector.cs" />
     <Compile Include="Data\Record\Usid16Record.cs" />
     <Compile Include="Data\Record\IdentityRecord.cs" />
     <Compile Include="Data\Record\IRecord.cs" />
@@ -132,7 +134,7 @@
     <Compile Include="Extensions\StringExtentsion.cs" />
     <Compile Include="Options\CompareOption.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Public\SafePage.cs" />
+    <Compile Include="Data\SafePage.cs" />
     <Compile Include="Lambda\ParameterRebinder.cs" />
     <Compile Include="Reflection\AssemblyFinderBase.cs" />
     <Compile Include="Reflection\DirectoryAssemblyFinder.cs" />
@@ -149,6 +151,8 @@
     <Compile Include="Utils\PageUtil.cs" />
     <Compile Include="Utils\TryUtil.cs" />
     <Compile Include="Valid\CheckResult.cs" />
+    <Compile Include="Valid\DisplayBody.cs" />
+    <Compile Include="Valid\IDisplayBody.cs" />
     <Compile Include="Valid\Rules\IRequiredRule.cs" />
     <Compile Include="Valid\IStringValid.cs" />
     <Compile Include="Valid\IValid.cs" />
@@ -157,7 +161,9 @@
     <Compile Include="Valid\Rules\StringRule.cs" />
     <Compile Include="Valid\StringValid.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Contract\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

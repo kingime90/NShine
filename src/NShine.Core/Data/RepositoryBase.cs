@@ -1,7 +1,6 @@
 ﻿using NShine.Core.Collections;
 using NShine.Core.Data.Record;
 using NShine.Core.Extensions;
-using NShine.Core.Public;
 using NShine.Core.Utils;
 using System;
 using System.Collections.Generic;

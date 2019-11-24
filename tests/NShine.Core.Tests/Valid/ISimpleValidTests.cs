@@ -19,7 +19,8 @@ namespace NShine.Core.Tests.Utils
             simpleValid.StringType(s => s.Name)
                        .SetRequired()
                        .SetMinLength(2)
-                       .SetMaxLength(10);
+                       .SetMaxLength(10)
+                       .SetBody("Name", "用户名字");
             User user = new User()
             {
                 Name = "张",
@@ -33,6 +34,7 @@ namespace NShine.Core.Tests.Utils
         /// <summary>
         /// 名字
         /// </summary>
+        [System.ComponentModel.Description("名字")]
         public string Name { get; set; }
     }
 }

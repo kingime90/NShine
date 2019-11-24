@@ -3,7 +3,7 @@
     /// <summary>
     /// 定义字符串合法性校验接口。
     /// </summary>
-    public interface IStringValid : IValid<string>
+    public interface IStringValid : IDisplayBody, IValid<string>
     {
         /// <summary>
         /// 设置必须。 
@@ -33,5 +33,13 @@
         /// <param name="maxLength">最大长度。</param>
         /// <returns></returns>
         IStringValid RangeLength(uint minLength, uint maxLength);
+
+        /// <summary>
+        /// 设置主体和显示名称。
+        /// </summary>
+        /// <param name="body">主体名称。</param>
+        /// <param name="display">显示名称。</param>
+        /// <returns></returns>
+        IStringValid SetBody(string body, string display = null);
     }
 }

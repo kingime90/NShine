@@ -1,6 +1,6 @@
 ﻿using NShine.Core.Extensions;
 
-namespace NShine.Core.Public
+namespace NShine.Core.Data
 {
     /// <summary>
     /// 安全的分页信息。
