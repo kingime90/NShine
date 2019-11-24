@@ -73,6 +73,7 @@
     <Compile Include="Ioc\IAnimal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\TryUtilTests.cs" />
+    <Compile Include="Valid\ISimpleValidTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

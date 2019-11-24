@@ -8,8 +8,30 @@
         /// <summary>
         /// 设置必须。 
         /// </summary>
-        /// <param name="isRequired">是否必须。</param>
+        /// <param name="required">是否必须。</param>
         /// <returns></returns>
-        IStringValid Required(bool isRequired = true);
+        IStringValid SetRequired(bool required = true);
+
+        /// <summary>
+        /// 设置最小长度。 
+        /// </summary>
+        /// <param name="minLength">最小长度。</param>
+        /// <returns></returns>
+        IStringValid SetMinLength(uint minLength);
+
+        /// <summary>
+        /// 设置最大长度。 
+        /// </summary>
+        /// <param name="maxLength">最大长度。</param>
+        /// <returns></returns>
+        IStringValid SetMaxLength(uint maxLength);
+
+        /// <summary>
+        /// 设置长度范围。 
+        /// </summary>
+        /// <param name="minLength">最小长度。</param>
+        /// <param name="maxLength">最大长度。</param>
+        /// <returns></returns>
+        IStringValid RangeLength(uint minLength, uint maxLength);
     }
 }

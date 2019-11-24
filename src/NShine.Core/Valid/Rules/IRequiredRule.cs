@@ -8,6 +8,6 @@
         /// <summary>
         /// 是否必须。
         /// </summary>
-        bool IsRequired { get; }
+        bool Required { get; }
     }
 }

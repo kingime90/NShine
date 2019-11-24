@@ -124,7 +124,7 @@
     <Compile Include="Data\Record\IdentityRecord.cs" />
     <Compile Include="Data\Record\IRecord.cs" />
     <Compile Include="Data\IRepository.cs" />
-    <Compile Include="Extensions\RecordExtentsion.cs" />
+    <Compile Include="Extensions\IRecordExtentsion.cs" />
     <Compile Include="Extensions\NullableTypeExtension.cs" />
     <Compile Include="Extensions\ValueTypeExtension.cs" />
     <Compile Include="Extensions\CollectionExtentsion.cs" />

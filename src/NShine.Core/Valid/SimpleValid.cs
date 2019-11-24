@@ -73,6 +73,7 @@ namespace NShine.Core.Valid
                     break;
                 }
             }
+            //
             return checkResult ?? new CheckResult();
         }
     }

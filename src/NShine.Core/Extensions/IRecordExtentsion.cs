@@ -6,7 +6,7 @@ namespace NShine.Core.Extensions
     /// <summary>
     /// 数据记录扩展方法。
     /// </summary>
-    public static class RecordExtentsion
+    public static class IRecordExtentsion
     {
         /// <summary>
         /// 检查唯一Key（主键为空，将自动创建主键值）。
@@ -43,7 +43,7 @@ namespace NShine.Core.Extensions
         /// </summary>
         /// <typeparam name="TKey">主键类型。</typeparam>
         /// <param name="record">数据记录接口。</param>
-        /// <param name="modifierId">创建者Id。</param>
+        /// <param name="creatorId">创建者Id。</param>
         public static void CheckICreated<TKey>(this IRecord<TKey> record, int creatorId)
         {
             ICreated createdRecord;
