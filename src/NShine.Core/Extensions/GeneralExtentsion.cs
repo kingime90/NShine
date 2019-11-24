@@ -13,9 +13,9 @@ namespace NShine.Core.Extensions
         /// <summary>
         /// 获取指定对象的值 或 默认值 （默认 <see cref="default(T)"/>）。
         /// </summary>
-        /// <typeparam name="T">对象类型。</typeparam>
-        /// <param name="value">对象的值。</param>
-        /// <param name="defaultValue">如果对象的值为 null，要返回的默认值（默认 <see cref="default(T)"/>）。</param>
+        /// <typeparam name="T">要获取的对象的类型。</typeparam>
+        /// <param name="value">要获取的对象的值。</param>
+        /// <param name="defaultValue">如果参数 value 的值为 null，要返回的默认值（默认 <see cref="default(T)"/>）。</param>
         /// <returns></returns>
         public static T OrDefault<T>(this T value, T defaultValue = default(T)) where T : class
         {
@@ -23,11 +23,23 @@ namespace NShine.Core.Extensions
         }
 
         /// <summary>
+        /// 获取指定对象的值 或 默认值。
+        /// </summary>
+        /// <typeparam name="T">要获取的对象的类型。</typeparam>
+        /// <param name="value">要获取的对象的值。</param>
+        /// <param name="defaultValue">如果参数 value 的值为 null，要返回的默认值的委托。</param>
+        /// <returns></returns>
+        public static T OrDefault<T>(this T value, Func<T> defaultValue) where T : class
+        {
+            return (value != null).Conditional(value, defaultValue);
+        }
+
+        /// <summary>
         /// 比较指定的值是否大于另一个值。
         /// </summary>
-        /// <typeparam name="T">比较对象类型。</typeparam>
-        /// <param name="value">要测试的值。</param>
-        /// <param name="compareValue">与此实例进行比较的值。</param>
+        /// <typeparam name="T">要比较的对象的类型。</typeparam>
+        /// <param name="value">要比较对象的值。</param>
+        /// <param name="compareValue">进行比较的另外一个值。</param>
         /// <returns></returns>
         public static bool IsGreater<T>(this T value, T compareValue) where T : struct, IComparable
         {
@@ -37,9 +49,9 @@ namespace NShine.Core.Extensions
         /// <summary>
         /// 比较指定的值是否大于等于另一个值。
         /// </summary>
-        /// <typeparam name="T">比较对象类型。</typeparam>
-        /// <param name="value">要测试的值。</param>
-        /// <param name="compareValue">与此实例进行比较的值。</param>
+        /// <typeparam name="T">要比较的对象的类型。</typeparam>
+        /// <param name="value">要比较对象的值。</param>
+        /// <param name="compareValue">进行比较的另外一个值。</param>
         /// <returns></returns>
         public static bool IsGreaterEqual<T>(this T value, T compareValue) where T : struct, IComparable
         {
@@ -49,9 +61,9 @@ namespace NShine.Core.Extensions
         /// <summary>
         /// 比较指定的值是否小于另一个值。
         /// </summary>
-        /// <typeparam name="T">比较对象类型。</typeparam>
-        /// <param name="value">要测试的值。</param>
-        /// <param name="compareValue">与此实例进行比较的值。</param>
+        /// <typeparam name="T">要比较的对象的类型。</typeparam>
+        /// <param name="value">要比较对象的值。</param>
+        /// <param name="compareValue">进行比较的另外一个值。</param>
         /// <returns></returns>
         public static bool IsLess<T>(this T value, T compareValue) where T : struct, IComparable
         {
@@ -61,9 +73,9 @@ namespace NShine.Core.Extensions
         /// <summary>
         /// 比较指定的值是否小于等于另一个值。
         /// </summary>
-        /// <typeparam name="T">比较对象类型。</typeparam>
-        /// <param name="value">要测试的值。</param>
-        /// <param name="compareValue">与此实例进行比较的值。</param>
+        /// <typeparam name="T">要比较的对象的类型。</typeparam>
+        /// <param name="value">要比较对象的值。</param>
+        /// <param name="compareValue">进行比较的另外一个值。</param>
         /// <returns></returns>
         public static bool IsLessEqual<T>(this T value, T compareValue) where T : struct, IComparable
         {
@@ -73,7 +85,7 @@ namespace NShine.Core.Extensions
         /// <summary>
         /// 比较指定的值是不是在指定的范围内（默认 大于等于和小于等于）。
         /// </summary>
-        /// <typeparam name="T">比较对象类型。</typeparam>
+        /// <typeparam name="T">要比较的对象的类型。</typeparam>
         /// <param name="value">要测试的值。</param>
         /// <param name="minValue">指定的范围最小值。</param>
         /// <param name="maxValue">指定的范围最大值。</param>
@@ -103,6 +115,7 @@ namespace NShine.Core.Extensions
         /// <summary>
         /// 指示指定的比较器接口实例是否有值。
         /// </summary>
+        /// <typeparam name="T">要比较的对象的类型。</typeparam>
         /// <param name="value">比较器接口实例。</param>
         /// <returns></returns>
         public static bool HasValue<T>(this IEquatable<T> value)

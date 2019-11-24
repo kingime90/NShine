@@ -1,4 +1,4 @@
-﻿namespace NShine.Core.Valids
+﻿namespace NShine.Core.Valid
 {
     /// <summary>
     /// 定义数据合法性校验接口。
@@ -11,7 +11,7 @@
     /// <summary>
     /// 定义数据合法性校验泛型接口。
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">要校验的对象的类型。</typeparam>
     public interface IValid<in T> : IValid
     {
         /// <summary>

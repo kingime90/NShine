@@ -1,4 +1,4 @@
-﻿using NShine.Core.Dependency;
+﻿using NShine;
 
 namespace WebApp.Demo.Services
 {

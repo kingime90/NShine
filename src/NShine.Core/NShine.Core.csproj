@@ -109,7 +109,7 @@
     <Compile Include="Dependency\ServiceDescriptor.cs" />
     <Compile Include="Dependency\SingletonDependencyTypeFinder.cs" />
     <Compile Include="Dependency\TransientDependencyTypeFinder.cs" />
-    <Compile Include="Extensions\AutofacExtensions.cs" />
+    <Compile Include="Extensions\AutofacExtension.cs" />
     <Compile Include="Extensions\ReflectionExtension.cs" />
     <Compile Include="Extensions\IRepositoryExtentsion.cs" />
     <Compile Include="Extensions\ExpressionExtentsion.cs" />
@@ -148,14 +148,14 @@
     <Compile Include="Utils\OrderUtil.cs" />
     <Compile Include="Utils\PageUtil.cs" />
     <Compile Include="Utils\TryUtil.cs" />
-    <Compile Include="Valids\CheckResult.cs" />
-    <Compile Include="Valids\IRequired.cs" />
-    <Compile Include="Valids\IStringValid.cs" />
-    <Compile Include="Valids\IValid.cs" />
-    <Compile Include="Valids\ISimpleValid.cs" />
-    <Compile Include="Valids\SimpleValid.cs" />
-    <Compile Include="Valids\StringRule.cs" />
-    <Compile Include="Valids\StringValid.cs" />
+    <Compile Include="Valid\CheckResult.cs" />
+    <Compile Include="Valid\Rules\IRequiredRule.cs" />
+    <Compile Include="Valid\IStringValid.cs" />
+    <Compile Include="Valid\IValid.cs" />
+    <Compile Include="Valid\ISimpleValid.cs" />
+    <Compile Include="Valid\SimpleValid.cs" />
+    <Compile Include="Valid\Rules\StringRule.cs" />
+    <Compile Include="Valid\StringValid.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

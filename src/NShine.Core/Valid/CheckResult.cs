@@ -1,4 +1,4 @@
-﻿namespace NShine.Core.Valids
+﻿namespace NShine.Core.Valid
 {
     /// <summary>
     /// 校验结果。

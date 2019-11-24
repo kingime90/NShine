@@ -27,7 +27,7 @@ namespace NShine.Core.Extensions
         /// </summary>
         /// <typeparam name="TResult">返回结果的类型。</typeparam>
         /// <param name="condition">条件的值。</param>
-        /// <param name="trueResult">如果条件的值为 true，要返回的结果。</param>
+        /// <param name="trueResult">如果条件的值为 true，要返回的结果的委托。</param>
         /// <param name="falseResult">如果条件的值为 false，要返回的结果。</param>
         /// <returns></returns>
         public static TResult Conditional<TResult>(this bool condition, Func<TResult> trueResult, TResult falseResult)
@@ -41,7 +41,7 @@ namespace NShine.Core.Extensions
         /// <typeparam name="TResult">返回结果的类型。</typeparam>
         /// <param name="condition">条件的值。</param>
         /// <param name="trueResult">如果条件的值为 true，要返回的结果。</param>
-        /// <param name="falseResult">如果条件的值为 false，要返回的结果。</param>
+        /// <param name="falseResult">如果条件的值为 false，要返回的结果的委托。</param>
         /// <returns></returns>
         public static TResult Conditional<TResult>(this bool condition, TResult trueResult, Func<TResult> falseResult)
         {
@@ -53,8 +53,8 @@ namespace NShine.Core.Extensions
         /// </summary>
         /// <typeparam name="TResult">返回结果的类型。</typeparam>
         /// <param name="condition">条件的值。</param>
-        /// <param name="trueResult">如果条件的值为 true，要返回的结果。</param>
-        /// <param name="falseResult">如果条件的值为 false，要返回的结果。</param>
+        /// <param name="trueResult">如果条件的值为 true，要返回的结果的委托。</param>
+        /// <param name="falseResult">如果条件的值为 false，要返回的结果的委托。</param>
         /// <returns></returns>
         public static TResult Conditional<TResult>(this bool condition, Func<TResult> trueResult, Func<TResult> falseResult)
         {
@@ -68,7 +68,7 @@ namespace NShine.Core.Extensions
         /// <typeparam name="TResult">返回结果的类型。</typeparam>
         /// <param name="condition">条件的值。</param>
         /// <param name="trueResult">如果条件的值为 true，要返回的结果。</param>
-        /// <param name="falseResult">如果条件的值为 false，要返回的结果。</param>
+        /// <param name="falseResult">如果条件的值为 false，要返回的结果的委托。</param>
         /// <param name="param">参数值。</param>
         /// <returns></returns>
         public static TResult Conditional<TParam, TResult>(this bool condition, TResult trueResult, Func<TParam, TResult> falseResult, TParam param)
@@ -82,7 +82,7 @@ namespace NShine.Core.Extensions
         /// <typeparam name="TParam">参数的类型。</typeparam>
         /// <typeparam name="TResult">返回结果的类型。</typeparam>
         /// <param name="condition">条件的值。</param>
-        /// <param name="trueResult">如果条件的值为 true，要返回的结果。</param>
+        /// <param name="trueResult">如果条件的值为 true，要返回的结果的委托。</param>
         /// <param name="falseResult">如果条件的值为 false，要返回的结果。</param>
         /// <param name="param">参数值。</param>
         /// <returns></returns>
@@ -97,8 +97,8 @@ namespace NShine.Core.Extensions
         /// <typeparam name="TParam">参数的类型。</typeparam>
         /// <typeparam name="TResult">返回结果的类型。</typeparam>
         /// <param name="condition">条件的值。</param>
-        /// <param name="trueResult">如果条件的值为 true，要返回的结果。</param>
-        /// <param name="falseResult">如果条件的值为 false，要返回的结果。</param>
+        /// <param name="trueResult">如果条件的值为 true，要返回的结果的委托。</param>
+        /// <param name="falseResult">如果条件的值为 false，要返回的结果的委托。</param>
         /// <param name="param">参数值。</param>
         /// <returns></returns>
         public static TResult Conditional<TParam, TResult>(this bool condition, Func<TResult> trueResult, Func<TParam, TResult> falseResult, TParam param)
@@ -112,8 +112,8 @@ namespace NShine.Core.Extensions
         /// <typeparam name="TParam">参数的类型。</typeparam>
         /// <typeparam name="TResult">返回结果的类型。</typeparam>
         /// <param name="condition">条件的值。</param>
-        /// <param name="trueResult">如果条件的值为 true，要返回的结果。</param>
-        /// <param name="falseResult">如果条件的值为 false，要返回的结果。</param>
+        /// <param name="trueResult">如果条件的值为 true，要返回的结果的委托。</param>
+        /// <param name="falseResult">如果条件的值为 false，要返回的结果的委托。</param>
         /// <param name="param">参数值。</param>
         /// <returns></returns>
         public static TResult Conditional<TParam, TResult>(this bool condition, Func<TParam, TResult> trueResult, Func<TResult> falseResult, TParam param)
@@ -127,8 +127,8 @@ namespace NShine.Core.Extensions
         /// <typeparam name="TParam">参数的类型。</typeparam>
         /// <typeparam name="TResult">返回结果的类型。</typeparam>
         /// <param name="condition">条件的值。</param>
-        /// <param name="trueResult">如果条件的值为 true，要返回的结果。</param>
-        /// <param name="falseResult">如果条件的值为 false，要返回的结果。</param>
+        /// <param name="trueResult">如果条件的值为 true，要返回的结果的委托。</param>
+        /// <param name="falseResult">如果条件的值为 false，要返回的结果的委托。</param>
         /// <param name="param">参数值。</param>
         /// <returns></returns>
         public static TResult Conditional<TParam, TResult>(this bool condition, Func<TParam, TResult> trueResult, Func<TParam, TResult> falseResult, TParam param)

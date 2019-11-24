@@ -43,16 +43,16 @@ namespace NShine.Core.Extensions
         /// </summary>
         /// <typeparam name="TKey">主键类型。</typeparam>
         /// <param name="record">数据记录接口。</param>
-        /// <param name="creatorId">创建者Id。</param>
+        /// <param name="modifierId">创建者Id。</param>
         public static void CheckICreated<TKey>(this IRecord<TKey> record, int creatorId)
         {
-            ICreated created;
-            if (record == null || (created = (record as ICreated)) == null || created.CreatorId.IsNotDefault())
+            ICreated createdRecord;
+            if (record == null || (createdRecord = (record as ICreated)) == null || createdRecord.CreatorId.IsNotDefault())
             {
                 return;
             }
             //CreatorId 无赋值（排除默认值）
-            created.CreatorId = creatorId;
+            createdRecord.CreatorId = creatorId;
         }
 
         /// <summary>
@@ -69,6 +69,40 @@ namespace NShine.Core.Extensions
         }
 
         /// <summary>
+        /// 检查最后修改时间数据记录接口。
+        /// </summary>
+        /// <typeparam name="TKey">主键类型。</typeparam>
+        /// <param name="record">数据记录接口。</param>
+        /// <param name="modifiedTime">最后修改时间。</param>
+        public static void CheckIModifiedTime<TKey>(this IRecord<TKey> record, DateTime modifiedTime)
+        {
+            IModifiedTime modifiedTimeRecord;
+            if (record == null || (modifiedTimeRecord = (record as IModifiedTime)) == null)
+            {
+                return;
+            }
+            //
+            modifiedTimeRecord.ModifiedTime = modifiedTime;
+        }
+
+        /// <summary>
+        /// 检查最后修改者数据记录接口。
+        /// </summary>
+        /// <typeparam name="TKey">主键类型。</typeparam>
+        /// <param name="record">数据记录接口。</param>
+        /// <param name="modifierId">最后修改者Id。</param>
+        public static void CheckIModifier<TKey>(this IRecord<TKey> record, int modifierId)
+        {
+            IModifier modifierRecord;
+            if (record == null || (modifierRecord = (record as IModifier)) == null)
+            {
+                return;
+            }
+            //
+            modifierRecord.ModifierId = modifierId;
+        }
+
+        /// <summary>
         /// 检查最后修改时间、最后修改者数据记录接口。
         /// </summary>
         /// <typeparam name="TKey">主键类型。</typeparam>
@@ -77,14 +111,8 @@ namespace NShine.Core.Extensions
         /// <param name="modifierId">最后修改者Id。</param>
         public static void CheckIModifiedAutited<TKey>(this IRecord<TKey> record, DateTime modifiedTime, int modifierId)
         {
-            IModifiedAutited modifiedAutited;
-            if (record == null || (modifiedAutited = (record as IModifiedAutited)) == null)
-            {
-                return;
-            }
-            //
-            modifiedAutited.ModifiedTime = modifiedTime;
-            modifiedAutited.ModifierId = modifierId;
+            record.CheckIModifiedTime(modifiedTime);
+            record.CheckIModifier(modifierId);
         }
 
         /// <summary>

@@ -1,4 +1,4 @@
-﻿namespace NShine.Core.Valids
+﻿namespace NShine.Core.Valid
 {
     /// <summary>
     /// 定义字符串合法性校验接口。

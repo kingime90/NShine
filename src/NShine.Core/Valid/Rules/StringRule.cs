@@ -1,9 +1,9 @@
-﻿namespace NShine.Core.Valids
+﻿namespace NShine.Core.Valid.Rules
 {
     /// <summary>
     /// 字符串合法性校验规则。
     /// </summary>
-    public class StringRule : IRequired
+    public class StringRule : IRequiredRule
     {
         /// <summary>
         /// 是否必须。

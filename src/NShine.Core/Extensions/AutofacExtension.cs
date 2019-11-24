@@ -11,7 +11,7 @@ namespace NShine.Core.Extensions
     /// <summary>
     /// Autofac 扩展方法。
     /// </summary>
-    public static class AutofacExtensions
+    public static class AutofacExtension
     {
         /// <summary>
         /// 将服务映射信息注册到依赖注入容器中。

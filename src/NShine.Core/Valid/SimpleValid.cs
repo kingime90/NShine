@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace NShine.Core.Valids
+namespace NShine.Core.Valid
 {
     /// <summary>
     /// 简单对象合法性校验。
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">要校验的简单对象的类型。</typeparam>
     public class SimpleValid<T> : ISimpleValid<T> where T : class
     {
         /// <summary>

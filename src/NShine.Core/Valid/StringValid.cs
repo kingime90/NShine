@@ -1,6 +1,7 @@
 ﻿using NShine.Core.Extensions;
+using NShine.Core.Valid.Rules;
 
-namespace NShine.Core.Valids
+namespace NShine.Core.Valid
 {
     /// <summary>
     /// 字符串合法性校验。
@@ -47,7 +48,7 @@ namespace NShine.Core.Valids
             {
                 if (value.IsEmpty())
                 {
-                    checkResult = new CheckResult("必填。");
+                    checkResult = new CheckResult("不能为空");
                 }
             }
             return checkResult ?? new CheckResult();

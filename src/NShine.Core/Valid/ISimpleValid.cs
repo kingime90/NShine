@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace NShine.Core.Valids
+namespace NShine.Core.Valid
 {
     /// <summary>
     /// 定义简单对象合法性校验接口。
     /// </summary>
-    /// <typeparam name="T">对象类型。</typeparam>
+    /// <typeparam name="T">要校验的简单对象的类型。</typeparam>
     public interface ISimpleValid<T> where T : class
     {
         /// <summary>

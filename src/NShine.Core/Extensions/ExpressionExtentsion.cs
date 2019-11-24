@@ -29,9 +29,9 @@ namespace NShine.Core.Extensions
         /// <summary>
         /// 以 Expression.AndAlso 运算方式组合两个表达式。
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="first"></param>
-        /// <param name="second"></param>
+        /// <typeparam name="T">表达式主体类型。</typeparam>
+        /// <param name="first">第一个表达式。</param>
+        /// <param name="second">第二个表达式。</param>
         /// <returns></returns>
         public static Expression<Func<T, bool>> And<T>(this Expression<Func<T, bool>> first, Expression<Func<T, bool>> second)
         {
@@ -41,9 +41,9 @@ namespace NShine.Core.Extensions
         /// <summary>
         /// 以 Expression.OrElse 运算方式组合两个表达式。
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="first"></param>
-        /// <param name="second"></param>
+        /// <typeparam name="T">表达式主体类型。</typeparam>
+        /// <param name="first">第一个表达式。</param>
+        /// <param name="second">第二个表达式。</param>
         /// <returns></returns>
         public static Expression<Func<T, bool>> Or<T>(this Expression<Func<T, bool>> first, Expression<Func<T, bool>> second)
         {
