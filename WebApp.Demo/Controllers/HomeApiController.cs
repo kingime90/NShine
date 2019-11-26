@@ -23,7 +23,7 @@ namespace WebApp.Demo.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        public IHttpActionResult Search([FromBody]string id)
+        public IHttpActionResult Search([FromUri]string id)
         {
             return Ok(id);
         }
@@ -34,7 +34,7 @@ namespace WebApp.Demo.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpPost]
-        public IHttpActionResult Login(UserLoginModel model)
+        public IHttpActionResult Login([FromBody]UserLoginModel model)
         {
             return Ok(model);
         }
