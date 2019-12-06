@@ -153,6 +153,8 @@
     <Compile Include="Valid\CheckResult.cs" />
     <Compile Include="Valid\DisplayBody.cs" />
     <Compile Include="Valid\IDisplayBody.cs" />
+    <Compile Include="Valid\IModelValid.cs" />
+    <Compile Include="Valid\ModelValid.cs" />
     <Compile Include="Valid\Rules\IRequiredRule.cs" />
     <Compile Include="Valid\IStringValid.cs" />
     <Compile Include="Valid\IValid.cs" />

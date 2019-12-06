@@ -1,5 +1,6 @@
 ﻿using NShine.Core.Extensions;
 using NShine.Core.Utils;
+using NShine.Core.Valid;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -48,7 +49,12 @@ namespace NShine.Web.WebApi.Binders
                 if (content.IsNotEmpty())
                 {
                     //
-                    SetValue(actionContext, JsonUtil.TryDeserialize(content, Descriptor.ParameterType).OrDefault(() => Activator.CreateInstance(Descriptor.ParameterType)));
+                    var value = JsonUtil.TryDeserialize(content, Descriptor.ParameterType).OrDefault(() => Activator.CreateInstance(Descriptor.ParameterType));
+                    if (value is IModelValid modelValid)
+                    {
+                        var checkResult = modelValid.Check();
+                    }
+                    SetValue(actionContext, value);
                 }
             }
             //

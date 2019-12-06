@@ -16,14 +16,14 @@ namespace NShine.Core.Valid
         /// <summary>
         /// 属性合法性校验集合。
         /// </summary>
-        protected IDictionary<PropertyInfo, Tuple<ValidOption, IValid>> PropertyValidSet { get; }
+        private IDictionary<PropertyInfo, Tuple<ValidOption, IValid>> _propertyValidSet { get; }
 
         /// <summary>
         /// 初始化一个<see cref="SimpleValid{T}"/>类型的新实例。
         /// </summary>
         public SimpleValid()
         {
-            PropertyValidSet = new Dictionary<PropertyInfo, Tuple<ValidOption, IValid>>();
+            _propertyValidSet = new Dictionary<PropertyInfo, Tuple<ValidOption, IValid>>();
         }
 
         /// <summary>
@@ -40,17 +40,6 @@ namespace NShine.Core.Valid
         }
 
         /// <summary>
-        /// 添加属性合法性校验。
-        /// </summary>
-        /// <param name="propertyInfo">属性信息。</param>
-        /// <param name="validOption">合法性校验选项。</param>
-        /// <param name="valid">合法性校验接口实例。</param>
-        protected void AddPropertyValid(PropertyInfo propertyInfo, ValidOption validOption, IValid valid)
-        {
-            PropertyValidSet.Add(propertyInfo, new Tuple<ValidOption, IValid>(validOption, valid));
-        }
-
-        /// <summary>
         /// 检验。
         /// </summary>
         /// <param name="obj">要检验对象的实例。</param>
@@ -58,7 +47,7 @@ namespace NShine.Core.Valid
         public CheckResult Check(T obj)
         {
             CheckResult checkResult = null;
-            foreach (var propertyValid in PropertyValidSet)
+            foreach (var propertyValid in _propertyValidSet)
             {
                 switch (propertyValid.Value.Item1)
                 {
@@ -87,5 +76,20 @@ namespace NShine.Core.Valid
             //
             return checkResult ?? new CheckResult();
         }
+
+        #region 辅助方法
+
+        /// <summary>
+        /// 添加属性合法性校验。
+        /// </summary>
+        /// <param name="propertyInfo">属性信息。</param>
+        /// <param name="validOption">合法性校验选项。</param>
+        /// <param name="valid">合法性校验接口实例。</param>
+        private void AddPropertyValid(PropertyInfo propertyInfo, ValidOption validOption, IValid valid)
+        {
+            _propertyValidSet.Add(propertyInfo, new Tuple<ValidOption, IValid>(validOption, valid));
+        }
+
+        #endregion
     }
 }
