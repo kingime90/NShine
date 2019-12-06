@@ -1,11 +1,10 @@
 ﻿using System.Web.Http.ModelBinding;
 
-namespace WebApp.Demo.Models
+namespace WebApp.Demo.ViewModels
 {
     /// <summary>
     /// 
     /// </summary>
-    [ModelBinder(typeof(UserLoginModelBinder))]
     public class UserLoginModel
     {
         /// <summary>

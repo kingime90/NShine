@@ -9,11 +9,6 @@ namespace NShine.Web.WebApi.Binders
     /// </summary>
     public class StringTrimModelBinder : IModelBinder
     {
-        public StringTrimModelBinder()
-        {
-
-        }
-
         public bool BindModel(HttpActionContext actionContext, ModelBindingContext bindingContext)
         {
             if (bindingContext.ModelType.FullName != "System.String")

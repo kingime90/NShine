@@ -1,6 +1,5 @@
 ﻿using NShine.Web.WebApi.Binders;
 using System.Web.Http;
-using WebApp.Demo.Models;
 
 namespace WebApp.Demo.App_Start
 {
@@ -10,7 +9,7 @@ namespace WebApp.Demo.App_Start
         {
             //模型绑定器
             config.BindParameter(typeof(string), new StringTrimModelBinder());
-            config.BindParameter(typeof(UserLoginModel), new UserLoginModelBinder());
+            //config.BindParameter(typeof(UserLoginModel), new UserLoginModelBinder());
 
             //config.Services.Insert(typeof(ModelBinderProvider), 0, new SimpleModelBinderProvider(typeof(UserLoginModel), new UserLoginModelBinder()));
 

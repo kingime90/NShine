@@ -1,24 +1,29 @@
-﻿using System;
+﻿using NShine.Core.Extensions;
+using NShine.Core.Utils;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http.Controllers;
 using System.Web.Http.Metadata;
-using System.Web.Http.ModelBinding;
 
 namespace NShine.Web.WebApi.Binders
 {
     /// <summary>
-    /// 
+    /// HTTP来自主体绑定参数。
     /// </summary>
     public class FromBodyExParameterBinding : HttpParameterBinding
     {
         /// <summary>
-        /// 
+        /// 初始化一个<see cref="FromBodyExParameterBinding"/>类型的新实例。
         /// </summary>
-        /// <param name="descriptor"></param>
+        /// <param name="descriptor">HTTP参数描述符。</param>
         public FromBodyExParameterBinding(HttpParameterDescriptor descriptor) : base(descriptor)
         {
-            
+
         }
 
         /// <summary>
@@ -30,7 +35,24 @@ namespace NShine.Web.WebApi.Binders
         /// <returns></returns>
         public override Task ExecuteBindingAsync(ModelMetadataProvider metadataProvider, HttpActionContext actionContext, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            //类 或 泛型
+            if (!Descriptor.ParameterType.IsClass && !typeof(IEnumerable<>).IsGenericAssignableFrom(Descriptor.ParameterType))
+            {
+                return Task.CompletedTask;
+            }
+            //
+            var stream = ((HttpContextBase)actionContext.Request.Properties["MS_HttpContext"]).Request.InputStream;
+            using (var reader = new StreamReader(stream, Encoding.UTF8))
+            {
+                string content = reader.ReadToEnd();
+                if (content.IsNotEmpty())
+                {
+                    //
+                    SetValue(actionContext, JsonUtil.TryDeserialize(content, Descriptor.ParameterType).OrDefault(() => Activator.CreateInstance(Descriptor.ParameterType)));
+                }
+            }
+            //
+            return Task.CompletedTask;
         }
     }
 }
